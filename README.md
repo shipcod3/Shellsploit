@@ -1,14 +1,8 @@
 # Shellsploit this summer !
 
-#b3mb4m@tuta.io
-
-
 This pictures from BETA versions,informations will be change every day ..
 
-#Contribution 
-          We are open everything.
       
-
 ![alt tag](http://i.hizliresim.com/V6DX3V.png)
 
 
@@ -21,3 +15,11 @@ This pictures from BETA versions,informations will be change every day ..
 
 ![alt tag](http://i.hizliresim.com/yRZEAj.png)
 
+
+
+#Contribution ? 
+         We are open everything.Just pm ..
+         
+         
+#b3mb4m@tuta.io
+#b3mb4m@protonmail.com
