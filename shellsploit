@@ -1,1 +1,330 @@
-#pass
+#!/usr/bin/env python
+
+#------------------Bombermans Team---------------------------------# 
+#Author  : B3mB4m
+#Concat  : b3mb4m@protonmail.com
+#Project : https://github.com/b3mb4m/Shellsploit
+#LICENSE : https://github.com/b3mb4m/Shellsploit/blob/master/LICENSE
+#------------------------------------------------------------------#
+
+
+from control import *
+from core.logo.logo import banner
+from core.logo.counter import *
+#import signal
+from core.Comp import tab
+
+tab.start(1)
+db = B3mB4mLogo().start()
+def start():
+	#Dynamic counter for shellcodes,injectors etc..
+	print banner( db[0], db[1], db[2], db[3])
+	shellsploit()
+
+def shellsploit():
+	try:
+		bash =  bcolors.OKBLUE + bcolors.UNDERLINE + "ssf" + bcolors.ENDC
+		bash += bcolors.OKBLUE + " > "+ bcolors.ENDC
+		#terminal = raw_input(bash).lower()
+		terminal = raw_input(bash)
+
+		if terminal[:4] == "help":
+			from core.help import mainhelp
+			mainhelp()
+			shellsploit()
+
+		elif terminal[:2] == "os":
+			from core.commands import oscommand
+			oscommand( terminal[3:])
+			shellsploit()
+
+
+		elif terminal[:6] == "banner":
+			print banner( db[0], db[1], db[2], db[3])
+			shellsploit()
+
+		elif terminal[:3] == "use":
+			if terminal[4:len("linux86/egghunter")+4] == "linux86/egghunter":
+				B3mB4m().control( "linux86/egghunter")
+				shellsploit()
+			elif terminal[4:len("linux86/binsh_spawn")+4] == "linux86/binsh_spawn":
+				B3mB4m().control( "linux86/binsh_spawn")
+				shellsploit()
+			elif terminal[4:len("linux86/bindash_spawn")+4] == "linux86/bindash_spawn":
+				B3mB4m().control( "linux86/bindash_spawn")
+				shellsploit()
+			elif terminal[4:len("linux86/readfile")+4] == "linux86/readfile":
+				B3mB4m().control( "linux86/readfile")
+				shellsploit()
+			elif terminal[4:len("linux86/chmod")+4] == "linux86/chmod":
+				B3mB4m().control( "linux86/chmod")
+				shellsploit()
+			elif terminal[4:len("linux86/reboot")+4] == "linux86/reboot":
+				B3mB4m().control( "linux86/reboot")
+				shellsploit()
+			elif terminal[4:len("linux86/shutdown")+4] == "linux86/shutdown":
+				B3mB4m().control( "linux86/shutdown")
+				shellsploit()
+			elif terminal[4:len("linux86/netcatbind")+4] == "linux86/netcatbind":
+				B3mB4m().control( "linux86/netcatbind")
+				shellsploit()
+			elif terminal[4:len("linux86/mkdir")+4] == "linux86/mkdir":
+				B3mB4m().control( "linux86/mkdir")
+				shellsploit()
+			elif terminal[4:len("linux86/rmdir")+4] == "linux86/rmdir":
+				B3mB4m().control( "linux86/rmdir")
+				shellsploit()
+			elif terminal[4:len("linux86/killall")+4] == "linux86/killall":
+				B3mB4m().control( "linux86/killall")
+				shellsploit()
+			elif terminal[4:len("linux86/tcp_bind")+4] == "linux86/tcp_bind":
+				B3mB4m().control( "linux86/tcp_bind")
+				shellsploit()
+			elif terminal[4:len("linux86/reverse_tcp")+4] == "linux86/reverse_tcp":
+				B3mB4m().control( "linux86/reverse_tcp")
+				shellsploit()
+			elif terminal[4:len("linux86/DeleteMBR")+4] == "linux86/DeleteMBR":
+				B3mB4m().control( "linux86/DeleteMBR")
+				shellsploit()
+			elif terminal[4:len("linux86/download&exec")+4] == "linux86/download&exec":
+				B3mB4m().control( "linux86/download&exec")
+				shellsploit()
+			elif terminal[4:len("linux86/Remoteportforward")+4] == "linux86/Remoteportforward":
+				B3mB4m().control( "linux86/Remoteportforward")
+				shellsploit()
+			elif terminal[4:len("linux86/reverse_telnet")+4] == "linux86/reverse_telnet":
+				B3mB4m().control( "linux86/reverse_telnet")
+				shellsploit()
+			elif terminal[4:len("linux86/ipv4forward")+4] == "linux86/ipv4forward":
+				B3mB4m().control( "linux86/ipv4forward")
+				shellsploit()
+			elif terminal[4:len("linux86/add_user")+4] == "linux86/add_user":
+				B3mB4m().control( "linux86/add_user")
+				shellsploit()    
+
+
+			elif terminal[4:len("linux64/read")+4] == "linux64/read":
+				B3mB4m().control( "linux64/read")
+				shellsploit()
+			elif terminal[4:len("linux64/binsh_spawn")+4] == "linux64/binsh_spawn":
+				B3mB4m().control( "linux64/binsh_spawn")
+				shellsploit()
+			elif terminal[4:len("linux64/shutdown")+4] == "linux64/shutdown":
+				B3mB4m().control( "linux64/shutdown")
+				shellsploit()
+			elif terminal[4:len("linux64/reboot")+4] == "linux64/reboot":
+				B3mB4m().control( "linux64/reboot")
+				shellsploit()
+			elif terminal[4:len("linux64/mkdir")+4] == "linux64/mkdir":
+				B3mB4m().control( "linux64/mkdir")
+				shellsploit()
+			elif terminal[4:len("linux64/tcp_bind")+4] == "linux64/tcp_bind":
+				B3mB4m().control( "linux64/tcp_bind")
+				shellsploit()
+			elif terminal[4:len("linux64/reverse_tcp")+4] == "linux64/reverse_tcp":
+				B3mB4m().control( "linux64/reverse_tcp")
+				shellsploit()
+			elif terminal[4:len("linux64/add_map")+4] == "linux64/add_map":
+				B3mB4m().control( "linux64/add_map")
+				shellsploit()
+			elif terminal[4:len("linux64/netcatbind")+4] == "linux64/netcatbind":
+				B3mB4m().control( "linux64/netcatbind")
+				shellsploit()    
+			elif terminal[4:len("linux64/egghunter")+4] == "linux64/egghunter":
+				B3mB4m().control( "linux64/egghunter")
+				shellsploit()
+			elif terminal[4:len("linux64/add_user")+4] == "linux64/add_user":
+				B3mB4m().control( "linux64/add_user")
+				shellsploit()
+
+
+			elif terminal[4:len("osx86/tcp_bind")+4] == "osx86/tcp_bind":
+				B3mB4m().control( "osx86/tcp_bind")
+				shellsploit()
+			#elif terminal[4:len("osx86/binsh_spawn")+4] == "osx86/binsh_spawn":
+				#B3mB4m.control( "osx86/binsh_spawn")
+				#shellsploit()
+			elif terminal[4:len("osx86/binsh_spawn")+4] == "osx86/binsh_spawn":
+				B3mB4m().control( "osx86/binsh_spawn")
+				shellsploit()
+
+
+			elif terminal[4:len("osx64/reverse_tcp")+4] == "osx64/reverse_tcp":
+				B3mB4m().control( "osx64/reverse_tcp")
+				shellsploit()
+			elif terminal[4:len("osx64/tcp_bind")+4] == "osx64/tcp_bind":
+				B3mB4m().control( "osx64/tcp_bind")
+				shellsploit()
+			elif terminal[4:len("osx64/binsh_spawn")+4] == "osx64/binsh_spawn":
+				B3mB4m().control( "osx64/binsh_spawn")
+				shellsploit()
+
+
+
+			elif terminal[4:len("FreeBSDx86/add_user")+4] == "FreeBSDx86/add_user":
+				B3mB4m().control( "freebsd_x86/add_user")
+				shellsploit()
+			elif terminal[4:len("FreeBSDx86/reboot")+4] == "FreeBSDx86/reboot":
+				B3mB4m().control( "freebsd_x86/reboot")
+				shellsploit()
+			elif terminal[4:len("FreeBSDx86/binsh_spawn")+4] == "FreeBSDx86/binsh_spawn":
+				B3mB4m().control( "freebsd_x86/binsh_spawn")
+				shellsploit()
+			elif terminal[4:len("FreeBSDx86/reverse_tcp2")+4] == "FreeBSDx86/reverse_tcp2":
+				B3mB4m().control( "freebsd_x86/reverse_tcp2")
+				shellsploit()
+			elif terminal[4:len("FreeBSDx86/reverse_tcp")+4] == "FreeBSDx86/reverse_tcp":
+				B3mB4m().control( "freebsd_x86/reverse_tcp")
+				shellsploit()
+			elif terminal[4:len("FreeBSDx86/killall")+4] == "FreeBSDx86/killall":
+				B3mB4m().control( "freebsd_x86/killall")
+				shellsploit()
+			elif terminal[4:len("FreeBSDx86/read")+4] == "FreeBSDx86/read":
+				B3mB4m().control( "freebsd_x86/readfile")
+				shellsploit()
+			elif terminal[4:len("FreeBSDx86/netcatreverse")+4] == "FreeBSDx86/netcatreverse":
+				B3mB4m().control( "freebsd_x86/netcatreverse")
+				shellsploit()
+			elif terminal[4:len("FreeBSDx86/exec")+4] == "FreeBSDx86/exec":
+				B3mB4m().control( "freebsd_x86/exec")
+				shellsploit()
+
+
+
+			elif terminal[4:len("FreeBSDx64/binsh_spawn")+4] == "FreeBSDx64/binsh_spawn":
+				B3mB4m().control( "freebsd_x64/binsh_spawn")
+				shellsploit()
+			elif terminal[4:len("FreeBSDx64/tcp_bind")+4] == "FreeBSDx64/tcp_bind":
+				B3mB4m().control( "freebsd_x64/tcp_bind")
+				shellsploit()
+  
+  
+
+			elif terminal[4:len("linux_arm/binsh_spawn")+4] == "linux_arm/binsh_spawn":
+				B3mB4m().control( "linux_arm/binsh_spawn")
+				shellsploit()
+			elif terminal[4:len("linux_arm/killall")+4] == "linux_arm/killall":
+				B3mB4m().control( "linux_arm/killall")
+				shellsploit()
+			elif terminal[4:len("linux_arm/creat")+4] == "linux_arm/creat":
+				B3mB4m().control( "linux_arm/creat")
+				shellsploit()
+			elif terminal[4:len("linux_arm/chmod")+4] == "linux_arm/chmod":
+				B3mB4m().control( "linux_arm/chmod")
+				shellsploit()
+			elif terminal[4:len("linux_arm/add_user")+4] == "linux_arm/add_user":
+				B3mB4m().control( "linux_arm/add_user")
+				shellsploit()            
+			elif terminal[4:len("linux_arm/reverse_tcp")+4] == "linux_arm/reverse_tcp":
+				B3mB4m().control( "linux_arm/reverse_tcp")
+				shellsploit()
+			
+		
+
+			elif terminal[4:len("linux_mips/binsh_spawn")+4] == "linux_mips/binsh_spawn":
+				B3mB4m().control( "linux_mips/binsh_spawn")
+				shellsploit()
+			elif terminal[4:len("linux_mips/reboot")+4] == "linux_mips/reboot":
+				B3mB4m().control( "linux_mips/reboot")
+				shellsploit()
+			elif terminal[4:len("linux_mips/chmod")+4] == "linux_mips/chmod":
+				B3mB4m().control( "linux_mips/chmod")
+				shellsploit()
+			elif terminal[4:len("linux_mips/reverse_tcp")+4] == "linux_mips/reverse_tcp":
+				B3mB4m().control( "linux_mips/reverse_tcp")
+				shellsploit()
+			elif terminal[4:len("linux_mips/add_user")+4] == "linux_mips/add_user":
+				B3mB4m().control( "linux_mips/add_user")
+				shellsploit()   
+			elif terminal[4:len("linux_mips/tcp_bind")+4] == "linux_mips/tcp_bind":
+				B3mB4m().control( "linux_mips/tcp_bind")
+				shellsploit()
+
+
+			elif terminal[4:len("windows/add_user")+4] == "windows/add_user":
+				B3mB4m().control( "windows/add_user")
+				shellsploit()
+			elif terminal[4:len("windows/messagebox")+4] == "windows/messagebox":
+				B3mB4m().control( "windows/messagebox")
+				shellsploit()
+			elif terminal[4:len("windows/download&execute")+4] == "windows/download&execute":
+				B3mB4m().control( "windows/download&execute")
+				shellsploit()
+			elif terminal[4:len("windows/exec")+4] == "windows/exec":
+				B3mB4m().control( "windows/exec")
+				shellsploit()
+
+			elif terminal[4:len("solarisx86/binsh_spawn")+4] == "solarisx86/binsh_spawn":
+				B3mB4m().control( "solarisx86/binsh_spawn")
+				shellsploit()
+			elif terminal[4:len("solarisx86/killall")+4] == "solarisx86/killall":
+				B3mB4m().control( "solarisx86/killall")
+				shellsploit()        
+			elif terminal[4:len("solarisx86/egghunter")+4] == "solarisx86/egghunter":
+				B3mB4m().control( "solarisx86/egghunter")
+				shellsploit()                      
+			elif terminal[4:len("solarisx86/bindash_spawn")+4] == "solarisx86/bindash_spawn":
+				B3mB4m().control( "solarisx86/bindash_spawn")
+				shellsploit()   
+			elif terminal[4:len("solarisx86/reboot")+4] == "solarisx86/reboot":
+				B3mB4m().control( "solarisx86/reboot")
+				shellsploit()  
+			elif terminal[4:len("solarisx86/shutdown")+4] == "solarisx86/shutdown":
+				B3mB4m().control( "solarisx86/shutdown")
+				shellsploit()                    
+			elif terminal[4:len("solarisx86/read")+4] == "solarisx86/read":
+				B3mB4m().control( "solarisx86/read")
+				shellsploit()    
+
+		 
+
+			elif terminal[4:len("injectors/Windows_x86")+4] == "injectors/Windows_x86":
+				B3mB4m().control( "injectors/Windows_x86")
+				shellsploit()
+			elif terminal[4:len("injectors/Linux")+4] == "injectors/Linux":
+				B3mB4m().control( "injectors/Linux")
+				shellsploit()    
+
+
+			else:
+				print "\nModule not avaible !\n"
+				shellsploit()
+
+
+		elif terminal[:14] == "show injectors":
+			from core.lists import injectorlist
+			injectorlist()
+			shellsploit()
+
+		elif terminal[:5] == "clear":
+			from core.commands import clean
+			clean()
+			shellsploit()
+
+		elif terminal[:12] == "show modules":
+			from core.shellcodes import shellcodelist
+			shellcodelist()
+			shellsploit()    
+
+
+		elif terminal[:4] == "exit":
+			exit("\nThanks for using shellsploit !\n")    
+
+		else:
+			if terminal == "":
+				shellsploit()
+			else:
+				print bcolors.RED + bcolors.BOLD + "[-] Unknown command: %s" % terminal + bcolors.ENDC
+				shellsploit()
+
+
+
+	except(KeyboardInterrupt):
+		print("\n[*] (Ctrl + C ) Detected, Trying To Exit ...")
+	  
+
+
+
+if __name__ == '__main__':
+	start()
+

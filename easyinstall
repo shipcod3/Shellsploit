@@ -1,1 +1,30 @@
 #!/usr/bin/env python
+
+#------------------Bombermans Team---------------------------------# 
+#Author  : B3mB4m
+#Concat  : b3mb4m@protonmail.com
+#Project : https://github.com/b3mb4m/Shellsploit
+#LICENSE : https://github.com/b3mb4m/Shellsploit/blob/master/LICENSE
+#------------------------------------------------------------------#
+
+from Requiments.autoinstall import start
+import subprocess
+import os
+#import time
+
+try:
+	if os.name == "nt":
+		command =  "python setup.py install"
+	else:
+		command =  "python "+os.getcwd()+os.sep+"setup.py install"
+		
+	subprocess.Popen(command, shell=True, stderr=subprocess.STDOUT)
+	print "\n\n"
+	start()
+	for x in os.listdir("."):
+		if x == "cmdline_shellsploit.egg-info" or x == "build" or x == "dist":
+			from shutil import rmtree
+			rmtree(x, ignore_errors=True)
+except Exception as error:
+	print "Unexpected error : %s " % error
+	raw_input()
