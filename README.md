@@ -7,12 +7,6 @@
 #Contribution ? 
          We are open everything.Just pm ..
          
-![alt tag](http://i.hizliresim.com/vnLnvD.png)         
-  
-![alt tag](http://i.hizliresim.com/1MkMlb.png)         
-
-![alt tag](http://i.hizliresim.com/rZVZoz.png)         
-       
          
 #b3mb4m@tuta.io
 #b3mb4m@protonmail.com
