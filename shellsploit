@@ -14,6 +14,7 @@ from core.logo.counter import *
 #import signal
 from core.Comp import tab
 
+
 tab.start(1)
 db = B3mB4mLogo().start()
 def start():
@@ -33,6 +34,9 @@ def shellsploit():
 			mainhelp()
 			shellsploit()
 
+		elif terminal[:14] == "show backdoors":
+			from core.help import mainhelp
+
 		elif terminal[:2] == "os":
 			from core.commands import oscommand
 			oscommand( terminal[3:])
@@ -44,38 +48,14 @@ def shellsploit():
 			shellsploit()
 
 		elif terminal[:3] == "use":
-			if terminal[4:len("linux86/egghunter")+4] == "linux86/egghunter":
-				B3mB4m().control( "linux86/egghunter")
-				shellsploit()
-			elif terminal[4:len("linux86/binsh_spawn")+4] == "linux86/binsh_spawn":
+			if terminal[4:len("linux86/binsh_spawn")+4] == "linux86/binsh_spawn":
 				B3mB4m().control( "linux86/binsh_spawn")
 				shellsploit()
-			elif terminal[4:len("linux86/bindash_spawn")+4] == "linux86/bindash_spawn":
-				B3mB4m().control( "linux86/bindash_spawn")
-				shellsploit()
-			elif terminal[4:len("linux86/readfile")+4] == "linux86/readfile":
-				B3mB4m().control( "linux86/readfile")
+			elif terminal[4:len("linux86/read")+4] == "linux86/read":
+				B3mB4m().control( "linux86/read")
 				shellsploit()
 			elif terminal[4:len("linux86/chmod")+4] == "linux86/chmod":
 				B3mB4m().control( "linux86/chmod")
-				shellsploit()
-			elif terminal[4:len("linux86/reboot")+4] == "linux86/reboot":
-				B3mB4m().control( "linux86/reboot")
-				shellsploit()
-			elif terminal[4:len("linux86/shutdown")+4] == "linux86/shutdown":
-				B3mB4m().control( "linux86/shutdown")
-				shellsploit()
-			elif terminal[4:len("linux86/netcatbind")+4] == "linux86/netcatbind":
-				B3mB4m().control( "linux86/netcatbind")
-				shellsploit()
-			elif terminal[4:len("linux86/mkdir")+4] == "linux86/mkdir":
-				B3mB4m().control( "linux86/mkdir")
-				shellsploit()
-			elif terminal[4:len("linux86/rmdir")+4] == "linux86/rmdir":
-				B3mB4m().control( "linux86/rmdir")
-				shellsploit()
-			elif terminal[4:len("linux86/killall")+4] == "linux86/killall":
-				B3mB4m().control( "linux86/killall")
 				shellsploit()
 			elif terminal[4:len("linux86/tcp_bind")+4] == "linux86/tcp_bind":
 				B3mB4m().control( "linux86/tcp_bind")
@@ -83,24 +63,12 @@ def shellsploit():
 			elif terminal[4:len("linux86/reverse_tcp")+4] == "linux86/reverse_tcp":
 				B3mB4m().control( "linux86/reverse_tcp")
 				shellsploit()
-			elif terminal[4:len("linux86/DeleteMBR")+4] == "linux86/DeleteMBR":
-				B3mB4m().control( "linux86/DeleteMBR")
+			elif terminal[4:len("linux86/exec")+4] == "linux86/exec":
+				B3mB4m().control( "linux86/exec")
 				shellsploit()
-			elif terminal[4:len("linux86/download&exec")+4] == "linux86/download&exec":
-				B3mB4m().control( "linux86/download&exec")
-				shellsploit()
-			elif terminal[4:len("linux86/Remoteportforward")+4] == "linux86/Remoteportforward":
-				B3mB4m().control( "linux86/Remoteportforward")
-				shellsploit()
-			elif terminal[4:len("linux86/reverse_telnet")+4] == "linux86/reverse_telnet":
-				B3mB4m().control( "linux86/reverse_telnet")
-				shellsploit()
-			elif terminal[4:len("linux86/ipv4forward")+4] == "linux86/ipv4forward":
-				B3mB4m().control( "linux86/ipv4forward")
-				shellsploit()
-			elif terminal[4:len("linux86/add_user")+4] == "linux86/add_user":
-				B3mB4m().control( "linux86/add_user")
-				shellsploit()    
+			#elif terminal[4:len("linux86/download&exec")+4] == "linux86/download&exec":
+				#B3mB4m().control( "linux86/download&exec")
+				#shellsploit()
 
 
 			elif terminal[4:len("linux64/read")+4] == "linux64/read":
@@ -109,43 +77,23 @@ def shellsploit():
 			elif terminal[4:len("linux64/binsh_spawn")+4] == "linux64/binsh_spawn":
 				B3mB4m().control( "linux64/binsh_spawn")
 				shellsploit()
-			elif terminal[4:len("linux64/shutdown")+4] == "linux64/shutdown":
-				B3mB4m().control( "linux64/shutdown")
-				shellsploit()
-			elif terminal[4:len("linux64/reboot")+4] == "linux64/reboot":
-				B3mB4m().control( "linux64/reboot")
-				shellsploit()
-			elif terminal[4:len("linux64/mkdir")+4] == "linux64/mkdir":
-				B3mB4m().control( "linux64/mkdir")
-				shellsploit()
 			elif terminal[4:len("linux64/tcp_bind")+4] == "linux64/tcp_bind":
 				B3mB4m().control( "linux64/tcp_bind")
 				shellsploit()
 			elif terminal[4:len("linux64/reverse_tcp")+4] == "linux64/reverse_tcp":
 				B3mB4m().control( "linux64/reverse_tcp")
 				shellsploit()
-			elif terminal[4:len("linux64/add_map")+4] == "linux64/add_map":
-				B3mB4m().control( "linux64/add_map")
-				shellsploit()
-			elif terminal[4:len("linux64/netcatbind")+4] == "linux64/netcatbind":
-				B3mB4m().control( "linux64/netcatbind")
-				shellsploit()    
-			elif terminal[4:len("linux64/egghunter")+4] == "linux64/egghunter":
-				B3mB4m().control( "linux64/egghunter")
-				shellsploit()
-			elif terminal[4:len("linux64/add_user")+4] == "linux64/add_user":
-				B3mB4m().control( "linux64/add_user")
-				shellsploit()
+
 
 
 			elif terminal[4:len("osx86/tcp_bind")+4] == "osx86/tcp_bind":
 				B3mB4m().control( "osx86/tcp_bind")
 				shellsploit()
-			#elif terminal[4:len("osx86/binsh_spawn")+4] == "osx86/binsh_spawn":
-				#B3mB4m.control( "osx86/binsh_spawn")
-				#shellsploit()
 			elif terminal[4:len("osx86/binsh_spawn")+4] == "osx86/binsh_spawn":
 				B3mB4m().control( "osx86/binsh_spawn")
+				shellsploit()
+			elif terminal[4:len("osx86/reverse_tcp")+4] == "osx86/reverse_tcp":
+				B3mB4m().control( "osx86/reverse_tcp")
 				shellsploit()
 
 
@@ -161,12 +109,6 @@ def shellsploit():
 
 
 
-			elif terminal[4:len("FreeBSDx86/add_user")+4] == "FreeBSDx86/add_user":
-				B3mB4m().control( "freebsd_x86/add_user")
-				shellsploit()
-			elif terminal[4:len("FreeBSDx86/reboot")+4] == "FreeBSDx86/reboot":
-				B3mB4m().control( "freebsd_x86/reboot")
-				shellsploit()
 			elif terminal[4:len("FreeBSDx86/binsh_spawn")+4] == "FreeBSDx86/binsh_spawn":
 				B3mB4m().control( "freebsd_x86/binsh_spawn")
 				shellsploit()
@@ -176,14 +118,8 @@ def shellsploit():
 			elif terminal[4:len("FreeBSDx86/reverse_tcp")+4] == "FreeBSDx86/reverse_tcp":
 				B3mB4m().control( "freebsd_x86/reverse_tcp")
 				shellsploit()
-			elif terminal[4:len("FreeBSDx86/killall")+4] == "FreeBSDx86/killall":
-				B3mB4m().control( "freebsd_x86/killall")
-				shellsploit()
 			elif terminal[4:len("FreeBSDx86/read")+4] == "FreeBSDx86/read":
-				B3mB4m().control( "freebsd_x86/readfile")
-				shellsploit()
-			elif terminal[4:len("FreeBSDx86/netcatreverse")+4] == "FreeBSDx86/netcatreverse":
-				B3mB4m().control( "freebsd_x86/netcatreverse")
+				B3mB4m().control( "freebsd_x86/read")
 				shellsploit()
 			elif terminal[4:len("FreeBSDx86/exec")+4] == "FreeBSDx86/exec":
 				B3mB4m().control( "freebsd_x86/exec")
@@ -197,26 +133,25 @@ def shellsploit():
 			elif terminal[4:len("FreeBSDx64/tcp_bind")+4] == "FreeBSDx64/tcp_bind":
 				B3mB4m().control( "freebsd_x64/tcp_bind")
 				shellsploit()
-  
+  			elif terminal[4:len("FreeBSDx64/reverse_tcp")+4] == "FreeBSDx64/reverse_tcp":
+				B3mB4m().control( "freebsd_x64/reverse_tcp")
+				shellsploit()
+			elif terminal[4:len("FreeBSDx64/exec")+4] == "FreeBSDx64/exec":
+				B3mB4m().control( "freebsd_x64/exec")
+				shellsploit()
   
 
 			elif terminal[4:len("linux_arm/binsh_spawn")+4] == "linux_arm/binsh_spawn":
 				B3mB4m().control( "linux_arm/binsh_spawn")
 				shellsploit()
-			elif terminal[4:len("linux_arm/killall")+4] == "linux_arm/killall":
-				B3mB4m().control( "linux_arm/killall")
-				shellsploit()
-			elif terminal[4:len("linux_arm/creat")+4] == "linux_arm/creat":
-				B3mB4m().control( "linux_arm/creat")
-				shellsploit()
 			elif terminal[4:len("linux_arm/chmod")+4] == "linux_arm/chmod":
 				B3mB4m().control( "linux_arm/chmod")
-				shellsploit()
-			elif terminal[4:len("linux_arm/add_user")+4] == "linux_arm/add_user":
-				B3mB4m().control( "linux_arm/add_user")
-				shellsploit()            
+				shellsploit()           
 			elif terminal[4:len("linux_arm/reverse_tcp")+4] == "linux_arm/reverse_tcp":
 				B3mB4m().control( "linux_arm/reverse_tcp")
+				shellsploit()
+			elif terminal[4:len("linux_arm/exec")+4] == "linux_arm/exec":
+				B3mB4m().control( "linux_arm/exec")
 				shellsploit()
 			
 		
@@ -224,26 +159,18 @@ def shellsploit():
 			elif terminal[4:len("linux_mips/binsh_spawn")+4] == "linux_mips/binsh_spawn":
 				B3mB4m().control( "linux_mips/binsh_spawn")
 				shellsploit()
-			elif terminal[4:len("linux_mips/reboot")+4] == "linux_mips/reboot":
-				B3mB4m().control( "linux_mips/reboot")
-				shellsploit()
 			elif terminal[4:len("linux_mips/chmod")+4] == "linux_mips/chmod":
 				B3mB4m().control( "linux_mips/chmod")
 				shellsploit()
 			elif terminal[4:len("linux_mips/reverse_tcp")+4] == "linux_mips/reverse_tcp":
 				B3mB4m().control( "linux_mips/reverse_tcp")
-				shellsploit()
-			elif terminal[4:len("linux_mips/add_user")+4] == "linux_mips/add_user":
-				B3mB4m().control( "linux_mips/add_user")
-				shellsploit()   
+				shellsploit() 
 			elif terminal[4:len("linux_mips/tcp_bind")+4] == "linux_mips/tcp_bind":
 				B3mB4m().control( "linux_mips/tcp_bind")
 				shellsploit()
 
-
-			elif terminal[4:len("windows/add_user")+4] == "windows/add_user":
-				B3mB4m().control( "windows/add_user")
-				shellsploit()
+			#elif windows/reverse_tcp
+			#elif windows/tcp_bind
 			elif terminal[4:len("windows/messagebox")+4] == "windows/messagebox":
 				B3mB4m().control( "windows/messagebox")
 				shellsploit()
@@ -256,24 +183,12 @@ def shellsploit():
 
 			elif terminal[4:len("solarisx86/binsh_spawn")+4] == "solarisx86/binsh_spawn":
 				B3mB4m().control( "solarisx86/binsh_spawn")
-				shellsploit()
-			elif terminal[4:len("solarisx86/killall")+4] == "solarisx86/killall":
-				B3mB4m().control( "solarisx86/killall")
-				shellsploit()        
-			elif terminal[4:len("solarisx86/egghunter")+4] == "solarisx86/egghunter":
-				B3mB4m().control( "solarisx86/egghunter")
-				shellsploit()                      
-			elif terminal[4:len("solarisx86/bindash_spawn")+4] == "solarisx86/bindash_spawn":
-				B3mB4m().control( "solarisx86/bindash_spawn")
-				shellsploit()   
-			elif terminal[4:len("solarisx86/reboot")+4] == "solarisx86/reboot":
-				B3mB4m().control( "solarisx86/reboot")
-				shellsploit()  
-			elif terminal[4:len("solarisx86/shutdown")+4] == "solarisx86/shutdown":
-				B3mB4m().control( "solarisx86/shutdown")
-				shellsploit()                    
+				shellsploit()                                  
 			elif terminal[4:len("solarisx86/read")+4] == "solarisx86/read":
 				B3mB4m().control( "solarisx86/read")
+				shellsploit()    
+			elif terminal[4:len("solarisx86/reverse_tcp")+4] == "solarisx86/reverse_tcp":
+				B3mB4m().control( "solarisx86/reverse_tcp")
 				shellsploit()    
 
 		 
@@ -321,10 +236,47 @@ def shellsploit():
 
 	except(KeyboardInterrupt):
 		print("\n[*] (Ctrl + C ) Detected, Trying To Exit ...")
+		from sys import exit
+		exit()
 	  
 
 
-
 if __name__ == '__main__':
-	start()
+	import optparse 
+	parser = optparse.OptionParser()
+	parser.add_option('-p', '--payload', action="store")
+	parser.add_option('-o', '--output', action="store", default=True)
+	parser.add_option('-l','--list', action="store", default=True)
+	parser.add_option('-n','--nc', action="store", default=True)
+	parser.add_option('--host', action="store")
+	parser.add_option('--port', action="store")
+	(options, args) = parser.parse_args()
+	
 
+	if options.list == "backdoors":
+		from core.backdoors import backdoorlist
+		backdoorlist( require=False)
+		
+	elif options.nc == "netcat" or options.nc == "nc":
+		from Session.netcat import nc
+		if options.port:
+			nc( PORT)
+		else:
+			nc()
+	else:
+		if options.payload:
+			if options.host and options.port:
+				from core.backdoors import backdoorlist
+				if options.payload in backdoorlist( require=True):
+					from Session.generator import process
+					if options.output:
+						process( options.payload, options.host, options.port, options.output)
+					else:
+						process( options.payload, options.host, options.port, True)
+						#Default, file will be create with random name.
+				else:
+					print "\npython shellsploit  -p PAYLOAD --host IP --port P0RT\n"
+			else:
+				print "\npython shellsploit  -p PAYLOAD --host IP --port P0RT\n"
+		else:
+			start()

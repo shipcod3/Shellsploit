@@ -5,77 +5,63 @@
 #LICENSE : https://github.com/b3mb4m/Shellsploit/blob/master/LICENSE
 #------------------------------------------------------------------#
 
-
 #Greetz : Kara Ayaz
 
+
+from color import *
 
 def controlset( choice, argv1="None", argv2="None", argv3="None", argv4="None"):
 	argv3 = str(argv3)
 	#Standalone Shellcodes
 	list = [
-	"freebsd_x86/killall",
 	"freebsd_x64/binsh_spawn",
-	"linux86/egghunter",
 	"linux86/binsh_spawn",
 	"linux86/bindash_spawn",
-	"linux86/reboot",
-	"linux86/shutdown",
-	"linux86/killall",
 	"linux64/binsh_spawn",
-	"linux64/shutdown",
-	"linux64/reboot",
 	"osx64/binsh_spawn",
-	"freebsd_x86/reboot",
 	"freebsd_x86/binsh_spawn",
-	"linux_arm/killall",
 	"linux_arm/binsh_spawn",
 	"linux_mips/binsh_spawn",
-	"linux_mips/reboot",
 	"solarisx86/binsh_spawn",
-	"solarisx86/killall",
-	"solarisx86/egghunter",
-	"solarisx86/bindash_spawn",
-	"solarisx86/reboot",
-	"solarisx86/shutdown",
 	"osx86/binsh_spawn"]
 
 	#Dependent a file 
 	list2 = [ 
-	"freebsd_x86/exec", #Will be change here, we should make different list for exec's
 	"FreeBSDx86/read",
-	"linux86/readfile",
+	"linux86/read",
+	"solarisx86/read",
 	"linux86/chmod",
-	"linux64/mkdir",
-	"linux86/mkdir",
-	"linux86/rmdir",
     "linux64/read",
-	"linux_arm/creat",
     "linux_arm/chmod",
 	"linux86/mkdir",
 	"linux_arm/chmod"]
 
 	list3 = [
-	"linux86/netcatbind",
 	"linux86/tcp_bind",
 	"linux64/tcp_bind",
 	"osx86/tcp_bind",
 	"osx64/tcp_bind",
-	"freebsd_x86/tcp_bind",
-	"linux86/download&exec"]
+	"freebsd_x86/tcp_bind"]
 
 	list4 = [
 	"freebsd_x86/reverse_tcp",
-	"freebsd_x86/netcatreverse",
+	"freebsd_x64/reverse_tcp",
 	"freebsd_x86/reverse_tcp2",
 	"linux86/reverse_tcp",
 	"linux64/reverse_tcp",
 	"osx64/reverse_tcp",
 	"linux_mips/reverse_tcp",
-	"linux86/reverse_telnet",
-	
-	"windows/add_user",
-	"freebsd_x86/add_user",
-	"linux_arm/add_user"]
+	"osx86/reverse_tcp",
+	"solarisx86/reverse_tcp",
+	]
+
+	#Execve
+	list5 = [
+		"linux_arm/exec",
+		"freebsd_x86/exec"
+		"linux86/exec",
+		"windows/exec",
+	]
 
 
 	if len(argv1) >= len(argv2):
@@ -91,7 +77,7 @@ def controlset( choice, argv1="None", argv2="None", argv3="None", argv4="None"):
 		padd = len(argv2)+5
 
 	if choice in list:
-		print """
+		print bcolors.GREEN+"""
 Module options ({0}):
 
 \tName\t\t{1}\t\tRequired\tDescription
@@ -102,7 +88,7 @@ Module options ({0}):
 	argv1.ljust(padd),argv2.ljust(padd))
 
 	elif choice in list2:
-		print """
+		print bcolors.GREEN+"""
 Module options ({0}):
 
 \tName\t\t{1}\t\tRequired\tDescription
@@ -114,7 +100,7 @@ Module options ({0}):
 	argv1.ljust(padd),argv2.ljust(padd),argv3.ljust(padd))
 
 	elif choice in list3:
-		print """
+		print bcolors.GREEN+"""
 Module options ({0}):
 
 \tName\t\t{1}\t\tRequired\tDescription
@@ -138,21 +124,14 @@ Module options ({0}):
 		else:
 			padd = len(argv3)+5
 
-		#needle work on strings lol ..
-		if choice in ["windows/add_user","freebsd_x86/add_user","linux_arm/add_user"]:
-			info_  = "user"
-			info__ = "password\t"
-			infodesc_  = "Username"
-			infodesc__ = "Password" 
 
-		else:
-			info_  = "port"
-			info__ = "host\t\t"
-			infodesc_  = "Connect PORT"
-			infodesc__ = "Connect HOST" 
+		info_  = "port"
+		info__ = "host\t\t"
+		infodesc_  = "Connect PORT"
+		infodesc__ = "Connect HOST" 
 
 
-		print """
+		print bcolors.GREEN+"""
 Module options ({0}):
 
 \tName\t\t{1}\t\tRequired\tDescription
@@ -165,36 +144,34 @@ Module options ({0}):
 	info_,argv1.ljust(padd),infodesc_,info__,argv2.ljust(padd),infodesc__,argv3.ljust(padd),argv4.ljust(padd))
 
 	
+	elif choice in list5:
+		if len(argv3) >= len(argv2):
+			if len(argv3) == 0:
+				padd = 8
+			elif len(argv3) == 1:
+				padd = 8
+			elif len(argv3) == 2:
+				padd = 8
+			else:
+				padd = len(argv3)+5
+		else:
+			padd = len(argv2)+5
+		
+		print bcolors.GREEN+"""
+Module options ({0}):
+
+\tName\t\t{1}\t\tRequired\tDescription
+\t----\t\t{2}\t\t--------\t-----------
+\tcommand\t\t{3}\t\tyes\t\tCommand to execute
+\tencoder\t\t{4}\t\tno\t\tEncoder type	
+\titeration\t{5}\t\tno\t\tIteration times
+""".format(choice,"Current Setting".ljust(padd),"---------------".ljust(padd),
+	argv3.ljust(padd),argv2.ljust(padd),argv1.ljust(padd))
+
 
 	else:
-		#THAT TABLE MUST BE CHANGE ..
-		if choice == "windows/exec":
-			print """
-	Module options (%s):
-
-	\tName\t\tCurrent Setting\t\tRequired\tDescription
-	\t----\t\t--------------\t\t--------\t-----------
-	\tcommand\t\t%s\t\t\tyes\t\tCommand to execute
-	\tencoder\t\t%s\t\t\tno\t\tEncoder type	
-	\titeration\t%s\t\t\tno\t\tEncoder iteration time
-	""" %  (choice,argv3,argv2,argv1)
-
-
-		elif choice == "linux64/add_map":
-			print """
-	Module options (%s):
-
-	\tName\t\tCurrent Setting\t\tRequired\tDescription
-	\t----\t\t--------------\t\t--------\t-----------
-	\tip\t\t%s\t\t\tyes\t\tIP to forward
-	\tmap\t\t%s\t\t\tyes\t\tHost name to map
-	\tencoder\t\t%s\t\t\tno\t\tEncoder type		
-	\titeration\t%s\t\t\tno\t\tIteration times
-	""" %  (choice,argv1,argv2,argv4,argv3)
-
-
-		elif choice == "windows/messagebox":
-			print """
+		if choice == "windows/messagebox":
+			print bcolors.GREEN+"""
 	Module options (%s):
 
 	\tName\t\tCurrent Setting\t\tRequired\tDescription
@@ -205,20 +182,21 @@ Module options ({0}):
 	""" %  (choice,argv1,argv2,argv3)
 
 		elif choice == "windows/download&execute":
-			print """
+			print bcolors.GREEN+"""
 	Module options (%s):
 
 	\tName\t\tCurrent Setting\t\tRequired\tDescription
 	\t----\t\t--------------\t\t--------\t-----------
-	\tlink\t\t%s\t\t\tyes\t\tFile name/path to remove
+	\tlink\t\t%s\t\t\tyes\t\tSource to download exe
+	\tfilename\t%s\t\t\tyes\t\tFile name
 	\tencoder\t\t%s\t\t\tno\t\tEncoder type		
 	\titeration\t%s\t\t\tno\t\tIteration times
-	""" %  (choice,argv1,argv2,argv3)
+	""" %  (choice,argv3,argv4,argv2,argv1)
 
 
 		#Will be change
 		elif choice == "freebsd_x64/tcp_bind":
-			print """
+			print bcolors.GREEN+"""
 	Module options (%s):
 
 	\tName\t\tCurrent Setting\t\tRequired\tDescription
@@ -228,3 +206,5 @@ Module options ({0}):
 	\tencoder\t\t%s\t\t\tno\t\tEncoder type		
 	\titeration\t%s\t\t\tno\t\tIteration times
 	""" %  (choice,argv4,argv3,argv2,argv1)
+
+

