@@ -17,15 +17,14 @@ Encoders
 		
   """
 
- """
-\tx64/xor\t\t\tnormal\t\tXOR Encoder
-\tx86/add_sub\t\tmanual\t\tAdd/Sub Encoder
-\tx86/alpha_mixed\t\tlow\t\tAlpha2 Alphanumeric Mixedcase Encoder
-\tx86/alpha_upper\t\tlow\t\tAlpha2 Alphanumeric Uppercase Encoder
-\tx86/countdown\t\tnormal\t\tSingle-byte XOR Countdown Encoder
-\tx86/nonalpha\t\tlow\t\tNon-Alpha Encoder
-\tx86/nonupper\t\tlow\t\tNon-Upper Encoder
-"""
+
+#\tx64/xor\t\t\tnormal\t\tXOR Encoder
+#\tx86/add_sub\t\tmanual\t\tAdd/Sub Encoder
+#\tx86/alpha_mixed\t\tlow\t\tAlpha2 Alphanumeric Mixedcase Encoder
+#\tx86/alpha_upper\t\tlow\t\tAlpha2 Alphanumeric Uppercase Encoder
+#\tx86/countdown\t\tnormal\t\tSingle-byte XOR Countdown Encoder
+#\tx86/nonalpha\t\tlow\t\tNon-Alpha Encoder
+#\tx86/nonupper\t\tlow\t\tNon-Upper Encoder
 
 def injectorlist():
 	print """
