@@ -18,6 +18,7 @@ def controlset( choice, argv1="None", argv2="None", argv3="None", argv4="None"):
 	"linux86/binsh_spawn",
 	"linux86/bindash_spawn",
 	"linux64/binsh_spawn",
+	"linux/binsh_spawn",
 	"osx64/binsh_spawn",
 	"freebsd_x86/binsh_spawn",
 	"linux_arm/binsh_spawn",
@@ -27,6 +28,7 @@ def controlset( choice, argv1="None", argv2="None", argv3="None", argv4="None"):
 
 	#Dependent a file 
 	list2 = [ 
+	"linux/read",
 	"FreeBSDx86/read",
 	"linux86/read",
 	"solarisx86/read",
@@ -38,6 +40,7 @@ def controlset( choice, argv1="None", argv2="None", argv3="None", argv4="None"):
 
 	list3 = [
 	"linux86/tcp_bind",
+	"linux/tcp_bind",
 	"linux64/tcp_bind",
 	"osx86/tcp_bind",
 	"osx64/tcp_bind",
@@ -47,6 +50,7 @@ def controlset( choice, argv1="None", argv2="None", argv3="None", argv4="None"):
 	"freebsd_x86/reverse_tcp",
 	"freebsd_x64/reverse_tcp",
 	"freebsd_x86/reverse_tcp2",
+	"linux/reverse_tcp",
 	"linux86/reverse_tcp",
 	"linux64/reverse_tcp",
 	"osx64/reverse_tcp",

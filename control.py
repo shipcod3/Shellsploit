@@ -187,6 +187,7 @@ Module options ({0}):
 
 				#files
 				list = [
+				"linux/read",
 				"freebsd_x86/read",
 				"linux86/read",
 				"solarisx86/read",
@@ -198,6 +199,7 @@ Module options ({0}):
 
 				#Non-params
 				list2 = [
+				"linux/binsh_spawn",
 				"bsdx64/binsh_spawn",
 				"linux86/binsh_spawn",
 				"linux_arm/binsh_spawn",
@@ -296,6 +298,28 @@ Module options ({0}):
 					else:
 						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
 
+				elif string == "linux/tcp_bind":
+					if terminal[4:8] == "port":
+						self.argvlist[2] = terminal[9:]
+					elif terminal[4:11] == "encoder":
+						self.argvlist[0] = terminal[12:]
+					elif terminal[4:13] == "iteration":
+						self.argvlist[1] = terminal[14:]
+					else:
+						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+				elif string == "linux/reverse_tcp":
+					if terminal[4:8] == "port":
+						self.argvlist[2] = terminal[9:]
+					elif terminal[4:11] == "encoder":
+						self.argvlist[0] = terminal[12:]
+					elif terminal[4:13] == "iteration":
+						self.argvlist[1] = terminal[14:]
+					elif terminal[4:8] == "host":
+						self.argvlist[3] = terminal[9:]
+					else:
+						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+
+
 				elif string == "osx86/reverse_tcp":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -306,8 +330,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC	
-				
+						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC			
 				elif string == "osx64/reverse_tcp":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -514,6 +537,20 @@ Module options ({0}):
 						controlset( string, self.argvlist[0], self.argvlist[1])
 					self.control( string)
 
+				elif string[:5] == "linux":
+					if string == "linux/read":
+						controlset( string, self.argvlist[2], self.argvlist[0], self.argvlist[1])
+					elif string == "linux/tcp_bind":
+						controlset( string, self.argvlist[2], self.argvlist[0], self.argvlist[1])
+					elif string == "linux/reverse_tcp":
+						controlset( string, self.argvlist[2], self.argvlist[3], self.argvlist[0], self.argvlist[1])					
+					else:
+						controlset( string, self.argvlist[0], self.argvlist[1])
+					self.control( string)
+
+
+
+
 				elif string[:10] == "solarisx86":
 					if string == "solarisx86/read":
 						controlset( string, self.argvlist[2], self.argvlist[0], self.argvlist[1])
@@ -622,6 +659,8 @@ Module options ({0}):
 							print "\nFile name must be declared.\n"
 							self.control( string)
 						self.disassembly = generator( "linux_x86", "read", self.argvlist[2])
+					
+
 					elif string == "linux86/exec":
 						if self.argvlist[2] == "None":
 							print "\nCommand must be declared.\n"	
@@ -658,10 +697,24 @@ Module options ({0}):
 					elif string == "linux64/tcp_bind":
 						self.disassembly = generator( "linux_x64", "tcp_bind", self.argvlist[2])
 					elif string == "linux64/reverse_tcp":
-						self.disassembly = generator( "linux_x64", "reverse_tcp", self.argvlist[2], self.argvlist[3])
+						self.disassembly = generator( "linux_x64", "reverse_tcp", self.argvlist[3], self.argvlist[2])
 					elif string == "linux64/read":
 						self.disassembly = generator( "linux_x64", "read", self.argvlist[2])	
-											
+			
+				if string[:5] == "linux":
+					if string == "linux/read":
+						if self.argvlist[2] == "None":
+							print "\nFile name must be declared.\n"
+							self.control( string)
+						self.disassembly = generator( "linux", "read", self.argvlist[2])
+					elif string == "linux/binsh_spawn":
+						self.disassembly = generator( "linux", "bin_sh")
+					elif string == "linux/tcp_bind":
+						self.disassembly = generator( "linux", "tcp_bind", self.argvlist[2])
+					elif string == "linux/reverse_tcp":
+						self.disassembly = generator( "linux", "reverse_tcp", self.argvlist[3], self.argvlist[2])
+
+
 				elif string[:5] == "osx86":
 					if string == "osx86/tcp_bind":
 						self.disassembly = generator( "osx86", "tcp_bind", self.argvlist[2])
@@ -720,7 +773,6 @@ Module options ({0}):
 					elif string == "linux_mips/tcp_bind":
 						self.disassembly = generator( "linux_mips", "tcp_bind", self.argvlist[2])
 
-
 				elif string[:7] == "windows":
 					if string == "windows/messagebox":
 						self.disassembly = generator( "windows", "messagebox", self.argvlist[2])
@@ -728,8 +780,7 @@ Module options ({0}):
 						self.disassembly = generator( "windows", "downloandandexecute", self.argvlist[2], self.argvlist[3])
 					elif string == "windows/exec":
 						self.disassembly = generator( "windows", "exec", self.argvlist[2])
-			
-				
+						
 				elif string[:10] == "solarisx86":					
 					if string == "solarisx86/binsh_spawn":
 						self.disassembly = generator( "solarisx86", "bin_sh")

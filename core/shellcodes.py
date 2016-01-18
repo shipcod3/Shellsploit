@@ -29,6 +29,15 @@ Linux x64
   linux64/reverse_tcp
 
 
+Linux x86/x64 [Works on both]
+===========
+
+  linux/binsh_spawn
+  linux/read
+  linux/tcp_bind
+  linux/reverse_tcp
+
+
 Linux ARM
 ===========
 

