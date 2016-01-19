@@ -62,7 +62,7 @@ Solaris x86
   solarisx86/binsh_spawn
   solarisx86/read
   solarisx86/reverse_tcp
-
+  solarisx86/tcp_bind
 
 Windows
 ===========
@@ -94,6 +94,7 @@ FreeBSD x86
 
   FreeBSDx86/binsh_spawn
   FreeBSDx86/read
+  FreeBSDx86/tcp_bind
   FreeBSDx86/reverse_tcp
   FreeBSDx86/reverse_tcp2 (through /bin/sh)
   FreeBSDx86/exec

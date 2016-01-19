@@ -137,7 +137,9 @@ def shellsploit():
 			elif terminal[4:len("FreeBSDx86/exec")+4] == "FreeBSDx86/exec":
 				B3mB4m().control( "freebsd_x86/exec")
 				shellsploit()
-
+			elif terminal[4:len("FreeBSDx86/tcp_bind")+4] == "FreeBSDx86/tcp_bind":
+				B3mB4m().control( "freebsd_x86/tcp_bind")
+				shellsploit()
 
 
 			elif terminal[4:len("FreeBSDx64/binsh_spawn")+4] == "FreeBSDx64/binsh_spawn":
@@ -203,7 +205,9 @@ def shellsploit():
 			elif terminal[4:len("solarisx86/reverse_tcp")+4] == "solarisx86/reverse_tcp":
 				B3mB4m().control( "solarisx86/reverse_tcp")
 				shellsploit()    
-
+			elif terminal[4:len("solarisx86/tcp_bind")+4] == "solarisx86/tcp_bind":
+				B3mB4m().control( "solarisx86/tcp_bind")
+				shellsploit()    
 		 
 
 			elif terminal[4:len("injectors/Windows_x86")+4] == "injectors/Windows_x86":

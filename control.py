@@ -365,6 +365,20 @@ Module options ({0}):
 						self.argvlist[3] = terminal[9:]
 					else:
 						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC	
+				elif string == "solarisx86/tcp_bind":
+					if terminal[4:8] == "port":
+						self.argvlist[2] = terminal[9:]
+					elif terminal[4:11] == "encoder":
+						self.argvlist[0] = terminal[12:]
+					elif terminal[4:13] == "iteration":
+						self.argvlist[1] = terminal[14:]
+					else:
+						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+
+
+
+
+
 				elif string == "osx86/tcp_bind":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -388,6 +402,15 @@ Module options ({0}):
 						self.argvlist[3] = terminal[9:]
 					else:
 						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC				
+				elif string == "freebsd_x86/tcp_bind":
+					if terminal[4:8] == "port":
+						self.argvlist[2] = terminal[9:]
+					elif terminal[4:11] == "encoder":
+						self.argvlist[0] = terminal[12:]
+					elif terminal[4:13] == "iteration":
+						self.argvlist[1] = terminal[14:]
+					else:
+						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC			
 				elif string == "freebsd_x86/reverse_tcp2":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -556,6 +579,8 @@ Module options ({0}):
 						controlset( string, self.argvlist[2], self.argvlist[0], self.argvlist[1])
 					elif string == "solarisx86/reverse_tcp":
 						controlset( string, self.argvlist[3], self.argvlist[2], self.argvlist[0], self.argvlist[1])	
+					elif string == "solarisx86/tcp_bind":
+						controlset( string, self.argvlist[2], self.argvlist[3], self.argvlist[0], self.argvlist[1])		
 					else:
 						controlset( string, self.argvlist[0], self.argvlist[1])
 					self.control( string)
@@ -602,6 +627,8 @@ Module options ({0}):
 						controlset( string, self.argvlist[2], self.argvlist[0], self.argvlist[1])
 					elif string == "freebsd_x86/exec":
 						controlset( string, self.argvlist[2], self.argvlist[0], self.argvlist[1])					
+					elif string == "freebsd_x86/tcp_bind":
+						controlset( string, self.argvlist[2], self.argvlist[0], self.argvlist[1])
 					else:
 						controlset( string, self.argvlist[0], self.argvlist[1])
 					self.control( string)
@@ -742,6 +769,9 @@ Module options ({0}):
 						self.disassembly = generator( "freebsd_x86", "reverse_tcp2", self.argvlist[3], self.argvlist[2])
 					elif string == "freebsd_x86/exec":
 						self.disassembly = generator( "freebsd_x86", "exec", self.argvlist[2])
+					elif string == "freebsd_x86/tcp_bind":
+						self.disassembly = generator( "freebsd_x86", "tcp_bind", self.argvlist[2])
+
 
 				elif string[:11] == "freebsd_x64":
 					if string == "freebsd_x64/binsh_spawn":
@@ -791,6 +821,8 @@ Module options ({0}):
 						self.disassembly = generator( "solarisx86", "read", self.argvlist[2])
 					elif string == "solarisx86/reverse_tcp":
 						self.disassembly = generator( "solarisx86", "reverse_tcp", self.argvlist[3], self.argvlist[2])
+					elif string == "solarisx86/tcp_bind":
+						self.disassembly = generator( "solarisx86", "tcp_bind", self.argvlist[2])
 
 
 				if self.argvlist[0] == "x86/xor_b3m":

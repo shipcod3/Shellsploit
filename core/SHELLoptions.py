@@ -40,6 +40,7 @@ def controlset( choice, argv1="None", argv2="None", argv3="None", argv4="None"):
 
 	list3 = [
 	"linux86/tcp_bind",
+	"solarisx86/tcp_bind",
 	"linux/tcp_bind",
 	"linux64/tcp_bind",
 	"osx86/tcp_bind",

