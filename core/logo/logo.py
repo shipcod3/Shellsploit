@@ -6,8 +6,8 @@
 #------------------------------------------------------------------#
 
 from random import randint
-from colorama import init
-init(autoreset=True)
+#from colorama import init
+#init(autoreset=True)
 #http://asciiset.com/figletserver.html
 def banner( num1,num2,num3,num4):
 	logo =[""" 
