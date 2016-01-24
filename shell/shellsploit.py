@@ -258,7 +258,7 @@ def shellsploit():
 	  
 
 
-if __name__ == '__main__':
+def main():
 	import optparse 
 	parser = optparse.OptionParser()
 	parser.add_option('-p', '--payload', action="store")
