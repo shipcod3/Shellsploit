@@ -13,8 +13,12 @@ For the Capstone's installation on nix machine:
 
     root$ sudo pip install capstone
 
+Also pyreadline for tab completion:
+   
+   root$ sudo pip install readline
+    
 
-After Capstone is installed,
+Now you are ready to install:
 
     root$ python setup.py install
     root$ shellsploit
