@@ -10,9 +10,11 @@ And let you obfuscation every byte via encoders.
 If you want to use Shellsploit, you have to install [Capstone](http://www.capstone-engine.org/) first.
 
 For the Capstone's installation:
+    	
     root$ sudo pip install capstone
 
 Also pyreadline for tab completion:
+   	
    	root$ sudo pip install readline
     
 
