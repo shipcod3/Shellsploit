@@ -4,8 +4,8 @@
 Shellsploit is lets you generate customized shellcodes,backdoors,injectors for various operation system.
 And let you obfuscation every byte via encoders.
 	
-#Install	
----------
+#Install/Uninstall	
+-------------------
 
 If you want to use Shellsploit, you have to install [Capstone](http://www.capstone-engine.org/) first.
 
@@ -20,8 +20,13 @@ Also pyreadline for tab completion:
 
 Now you are ready to install(pip works on both windows/nix machines):
 
-    root$ python setup.py install
+    root$ python setup.py -s/--setup install 
     root$ shellsploit
+
+You dont want it anymore ? Uninstall it:
+
+    root$ python setup.py -s/--setup uninstall 
+ 
 
 #Usage
 -----
