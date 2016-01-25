@@ -11,11 +11,13 @@ class B3mB4mLogo(object):
 	def __init__(self):
 		self.db = ["database", "OS", "encoders", "inject"]
 		self.ret = []
+		#self.magic = os.sep.join((os.getcwd()).split(os.sep)[:len((os.getcwd()).split(os.sep))-1])
+		self.magic = os.getcwd()+os.sep+"shell"
 
 	def calculate(self, select, files=True):
 		if files == True:
 			self.cout = 0
-			for root, dirs, files in os.walk(os.getcwd()+os.sep+select, topdown=True):
+			for root, dirs, files in os.walk(self.magic+os.sep+select, topdown=True):
 				for x in files:
 					if ".pyc" not in x and "init" not in x:
 						if select == "inject":
@@ -26,7 +28,7 @@ class B3mB4mLogo(object):
 			return self.cout
 		else:
 			self.cout = 0
-			for root, dirs, files in os.walk(os.getcwd()+os.sep+select, topdown=True):
+			for root, dirs, files in os.walk(self.magic+os.sep+select, topdown=True):
 				for x in dirs:
 					self.cout += 1
 			return self.cout
@@ -37,6 +39,6 @@ class B3mB4mLogo(object):
 				self.ret.append( self.calculate( x, True))
 			else:
 				self.ret.append( self.calculate( "database", False))
-	
 		return self.ret
+
 

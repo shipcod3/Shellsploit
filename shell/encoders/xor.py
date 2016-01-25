@@ -41,7 +41,7 @@ def start( shellcode):
 				control = False
 		return "".join(qe)
 	except:
-		print "After roll 9999 times,payload generate failed."
+		print ("After roll 9999 times,payload generate failed.")
 		sys.exit()
 
 

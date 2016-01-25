@@ -5,16 +5,20 @@
 #LICENSE : https://github.com/b3mb4m/Shellsploit/blob/master/LICENSE
 #------------------------------------------------------------------#
 
-
+"""
 #On Windows pyreadline
 #On Linux readline
 try:
     #Seems like reasonable so ..
     #http://stackoverflow.com/questions/6024952/readline-functionality-on-windows-with-python-2-7
-    import readline
-except ImportError:
     import pyreadline as readline
-import db
+except ImportError:
+
+"""
+
+import readline
+#Just test it, readline works on windows too.Readline obsolete, so fck it.
+
 
 
 
@@ -46,10 +50,12 @@ class SimpleCompleter(object):
 #Control 2 = control.py
 def start( control=1):
     if control == 1:
-        readline.set_completer(SimpleCompleter(db.ret2()).complete)
+        from .db import ret2
+        readline.set_completer(SimpleCompleter(ret2()).complete)
         readline.parse_and_bind('tab: complete')
     else:
-        readline.set_completer(SimpleCompleter(db.ret()).complete)
+        from .db import ret
+        readline.set_completer(SimpleCompleter(ret()).complete)
         readline.parse_and_bind('tab: complete')
 
 

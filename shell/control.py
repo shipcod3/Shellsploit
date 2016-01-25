@@ -5,6 +5,12 @@
 #LICENSE : https://github.com/b3mb4m/Shellsploit/blob/master/LICENSE
 #------------------------------------------------------------------#
 
+import sys
+import os
+
+name = os.sep.join([x for x in os.getcwd().split(os.sep) if x != os.getcwd().split(os.sep)[-1]])
+sys.path.append(name)
+
 
 from core.color import *
 from re import findall
@@ -22,7 +28,10 @@ class B3mB4m(object):
 		bash += ":"
 		bash += bcolors.RED + string+ bcolors.ENDC
 		bash += bcolors.OKBLUE + " > "+ bcolors.ENDC
-		terminal = raw_input(bash).lower()
+		try:
+			terminal = raw_input(bash).lower()
+		except NameError:
+			terminal = input(bash).lower()
 
 		#Injectors
 		if string[:9] == "injectors":
@@ -65,7 +74,7 @@ class B3mB4m(object):
 					if terminal == "":
 						self.control( string)
 					else:
-						print bcolors.RED + bcolors.BOLD + "[-] Unknown command: %s" % terminal + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "[-] Unknown command: %s" % terminal + bcolors.ENDC)
 				self.control( string)
 
 
@@ -85,14 +94,14 @@ class B3mB4m(object):
 				else:
 					padd = len(self.mycache)+5
 
-				print bcolors.GREEN+"""
+				print (bcolors.GREEN+"""
 Module options ({0}):
 
 \tName\t\t{1}\t\tRequired\tDescription
 \t----\t\t{2}\t\t--------\t-----------
 \tPID\t\t{3}\t\tno\t\tEncoder		
 \tShellcode\t{4}\t\tno\t\tEncoder
-""".format(string,"Current Setting".ljust(padd),"---------------".ljust(padd),self.argvlist[0].ljust(padd),self.mycache.ljust(padd)+bcolors.ENDC)
+""".format(string,"Current Setting".ljust(padd),"---------------".ljust(padd),self.argvlist[0].ljust(padd),self.mycache.ljust(padd)+bcolors.ENDC))
 				self.control( string)
 
 			
@@ -129,7 +138,7 @@ Module options ({0}):
 				if terminal == "":
 					self.control( string)
 				else:
-					print bcolors.RED + bcolors.BOLD + "[-] Unknown command: %s" % terminal + bcolors.ENDC
+					print (bcolors.RED + bcolors.BOLD + "[-] Unknown command: %s" % terminal + bcolors.ENDC)
 					self.control( string)
 
 
@@ -218,24 +227,24 @@ Module options ({0}):
 						self.argvlist[2] = terminal[9:]
 					elif terminal[4:11] == "encoder":
 						if terminal[12:] not in encoders():
-							print "This encoder not in list !"
+							print ("This encoder not in list !")
 							self.control( string)
 						self.argvlist[0] = terminal[12:]
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 
 				if string in list2:
 					if terminal[4:11] == "encoder":
 						if terminal[12:] not in encoders():
-							print "This encoder not in list !"
+							print ("This encoder not in list !")
 							self.control( string)
 						self.argvlist[0] = terminal[12:]
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 
 
 				if string == "linux86/tcp_bind":
@@ -246,7 +255,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 				elif string == "linux86/reverse_tcp":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -257,7 +266,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 				#elif string == "linux86/download&exec":
 					#if terminal[4:7] == "url":
 						#self.argvlist[2] = terminal[8:]
@@ -275,7 +284,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 
 				elif string == "linux64/tcp_bind":
 					if terminal[4:8].lower() == "port":
@@ -285,7 +294,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 				elif string == "linux64/reverse_tcp":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -296,7 +305,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 
 				elif string == "linux/tcp_bind":
 					if terminal[4:8] == "port":
@@ -306,7 +315,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 				elif string == "linux/reverse_tcp":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -317,7 +326,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 
 
 				elif string == "osx86/reverse_tcp":
@@ -330,7 +339,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC			
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)		
 				elif string == "osx64/reverse_tcp":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -341,7 +350,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC		
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)	
 				elif string == "osx64/tcp_bind":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -350,7 +359,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 
 
 
@@ -364,7 +373,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC	
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 				elif string == "solarisx86/tcp_bind":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -373,7 +382,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 
 
 
@@ -387,7 +396,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 
 
 
@@ -401,7 +410,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC				
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)			
 				elif string == "freebsd_x86/tcp_bind":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -410,7 +419,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC			
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)	
 				elif string == "freebsd_x86/reverse_tcp2":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -421,7 +430,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC	
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 				elif string == "freebsd_x86/exec":
 					if terminal[4:8] == "command":
 						self.argvlist[2] = terminal[9:]
@@ -430,7 +439,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 				
 
 				elif string == "freebsd_x64/exec":
@@ -441,7 +450,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC		
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)	
 				elif string == "freebsd_x64/tcp_bind":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -452,7 +461,7 @@ Module options ({0}):
 					elif terminal[4:12] == "password":
 						self.argvlist[3] = terminal[13:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 				elif string == "freebsd_x64/reverse_tcp":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -463,7 +472,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC				
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)			
 
 				elif string == "linux_mips/reverse_tcp":
 					if terminal[4:8] == "port":
@@ -475,7 +484,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 				elif string == "linux_mips/tcp_bind":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -484,7 +493,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC				
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)			
 
 
 
@@ -496,7 +505,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC		
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)	
 				elif string == "linux_arm/reverse_tcp":
 					if terminal[4:8] == "port":
 						self.argvlist[2] = terminal[9:]
@@ -507,7 +516,7 @@ Module options ({0}):
 					elif terminal[4:8] == "host":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 
 				elif string == "windows/download&execute":
 					if terminal[4:8] == "link":
@@ -519,7 +528,7 @@ Module options ({0}):
 					elif terminal[4:8] == "file":
 						self.argvlist[3] = terminal[9:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 				elif string == "windows/messagebox":
 					if terminal[4:11] == "message":
 						self.argvlist[2] = terminal[12:]
@@ -528,7 +537,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC			
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)		
 				elif string == "windows/exec":
 					if terminal[4:11] == "command":
 						self.argvlist[2] = terminal[12:]
@@ -537,7 +546,7 @@ Module options ({0}):
 					elif terminal[4:13] == "iteration":
 						self.argvlist[1] = terminal[14:]
 					else:
-						print bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC
+						print (bcolors.RED + bcolors.BOLD + "This option is not available." + bcolors.ENDC)
 
 				self.control( string)	
 
@@ -683,38 +692,38 @@ Module options ({0}):
 
 					elif string == "linux86/read":
 						if self.argvlist[2] == "None":
-							print "\nFile name must be declared.\n"
+							print ("\nFile name must be declared.\n")
 							self.control( string)
 						self.disassembly = generator( "linux_x86", "read", self.argvlist[2])
 					
 
 					elif string == "linux86/exec":
 						if self.argvlist[2] == "None":
-							print "\nCommand must be declared.\n"	
+							print ("\nCommand must be declared.\n")
 							self.control( string)
 						self.disassembly = generator( "linux_x86", "exec", self.argvlist[2])
 
 					elif string  == "linux86/download&exec":
 						if self.argvlist[2] == "None":
-							print "\nLink must be declared.\n"
+							print ("\nLink must be declared.\n")
 							self.control( string)
 						self.disassembly = generator( "linux_x86", "download&exec", self.argvlist[2])
 
 
 					elif string == "linux86/chmod":
 						if self.argvlist[2] == "None":
-							print "\nFile name must be declared.\n"
+							print ("\nFile name must be declared.\n")
 							self.control( string)
 						self.disassembly = generator( "linux_x86", "chmod", self.argvlist[2])
 
 					elif string == "linux86/tcp_bind":
 						if self.argvlist[2] == "None":
-							print "\nPORT must be declared.\n"
+							print ("\nPORT must be declared.\n")
 							self.control( string)
 						self.disassembly = generator( "linux_x86", "tcp_bind", self.argvlist[2])
 					elif string == "linux86/reverse_tcp":	
 						if self.argvlist[2] == "None" or self.argvlist[3] == "None": 
-							print "\nHost&Port must be declared.\n"
+							print ("\nHost&Port must be declared.\n")
 							self.control( string)
 						self.disassembly = generator( "linux_x86", "reverse_tcp", self.argvlist[3], self.argvlist[2])
 
@@ -731,7 +740,7 @@ Module options ({0}):
 				if string[:5] == "linux":
 					if string == "linux/read":
 						if self.argvlist[2] == "None":
-							print "\nFile name must be declared.\n"
+							print ("\nFile name must be declared.\n")
 							self.control( string)
 						self.disassembly = generator( "linux", "read", self.argvlist[2])
 					elif string == "linux/binsh_spawn":
@@ -816,7 +825,7 @@ Module options ({0}):
 						self.disassembly = generator( "solarisx86", "bin_sh")
 					elif string == "solarisx86/read":
 						if self.argvlist[2] == "None":
-							print "\nFile name must be declared.\n"
+							print ("\nFile name must be declared.\n")
 							self.control( string)
 						self.disassembly = generator( "solarisx86", "read", self.argvlist[2])
 					elif string == "solarisx86/reverse_tcp":
@@ -846,13 +855,13 @@ Module options ({0}):
 
 				#Error on too big iterations
 				#print "\n"+"Shellcode Lenght : %d" % len(str(bytearray(self.disassembly.replace("\\x", "").decode("hex"))))
-				print "\n"+self.disassembly+"\n"
+				print ("\n"+self.disassembly+"\n")
 				self.control( string)
 
 
 			elif terminal[:6] == "output":
 				if self.disassembly == "None":
-					print "Please generate shellcode before save it."
+					print ("Please generate shellcode before save it.")
 					self.control( string)	
 
 				#I'm not sure about this option, should I get this option with params 
@@ -924,7 +933,7 @@ Module options ({0}):
 					TxtFile( self.disassembly)	
 
 				else:
-					print bcolors.RED + bcolors.BOLD + "[-] Unknown output type: %s" % terminal + bcolors.ENDC
+					print (bcolors.RED + bcolors.BOLD + "[-] Unknown output type: %s" % terminal + bcolors.ENDC)
 				self.control( string)					
 
 			elif terminal[:5] == "clear":
@@ -944,41 +953,41 @@ Module options ({0}):
 
 			elif terminal[:5] == "disas":
 				if self.disassembly == "None":
-					print "Shellcode must be generate before disassembly !"
+					print ("Shellcode must be generate before disassembly !")
 
 				else:
 					self.disassembly = self.disassembly.replace("\\x", "")
 					if "linux_mips" not in string or "linux_mips" not in string:
 						from disassembly.dis import disas
-						try:
+						#Thanks for capstone ! :)
+						try: 
 							if "64" in string:
-								#The goal of diStorm3 is to decode x86/AMD64 binary streams and return a structure that describes each instruction.
-								print disas( str(bytearray(self.disassembly.decode("hex"))), 64)
+								print (disas( str(bytearray(self.disassembly.decode("hex"))), 64))
 							elif "86" in string:
-								print disas( str(bytearray(self.disassembly.decode("hex"))), 32)
-							else: #Just for a while
-								print disas( str(bytearray(self.disassembly.decode("hex"))), 32)
+								print (disas( str(bytearray(self.disassembly.decode("hex"))), 32))
+							else: 
+								print (disas( str(bytearray(self.disassembly.decode("hex"))), 32))
 						except TypeError:
-							print "Disassembly failed.Please do not forget report."
+							print ("Disassembly failed.Please do not forget report.")
 					else:
 						from disassembly.dis2 import disasNOTintel
 						try:
-							print "\n\n"
+							print ("\n\n")
 							if "mips" in string:
-								print disasNOTintel( self.disassembly.decode("hex"), "mips", 32)
+								print (disasNOTintel( self.disassembly.decode("hex"), "mips", 32))
 							else:
 								if "64" in string:
-									print disasNOTintel( self.disassembly.decode("hex"), "arm", 64)
+									print (disasNOTintel( self.disassembly.decode("hex"), "arm", 64))
 								elif "86" in string:
-									print disasNOTintel( self.disassembly.decode("hex"), "arm", 32)
-							print "\n\n"
- 						except TypeError:	
- 							print "Disassembly failed.Please do not forget report."
+									print (disasNOTintel( self.disassembly.decode("hex"), "arm", 32))
+							print ("\n\n")
+						except TypeError as err:	
+							print ("Disassembly failed.Please do not forget report.")
 				self.control( string)
 
 			else:
 				if terminal == "":
 					self.control( string)
 				else:
-					print bcolors.RED + bcolors.BOLD + "[-] Unknown command: %s" % terminal + bcolors.ENDC
+					print (bcolors.RED + bcolors.BOLD + "[-] Unknown command: %s" % terminal + bcolors.ENDC)
 					self.control( string)

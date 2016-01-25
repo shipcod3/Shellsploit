@@ -89,7 +89,7 @@ def detectOS():
 		#elif platform.lower() == "darwin":
 			#print "mac osx"
 		elif platform.lower() == "win32":
-			return "windowsx86"
+			return "windows"
 		elif platform.lower() == "sunos":
 			return "solarisx86"
 		elif "freebsd" in platform.lower():
@@ -101,9 +101,10 @@ def detectOS():
 	elif architectureDetect() == 64:
 		if "freebsd" in platform.lower():
 			return "freebsdx64"
+		elif "win32" in platform.lower():
+			return "windows"
 
 	else:
 		#This is can be possible ? ..
-		print "Not supported architecture .."
-
+		print ("Not supported architecture ..")
 

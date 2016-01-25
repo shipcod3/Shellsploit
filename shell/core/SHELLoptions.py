@@ -82,7 +82,7 @@ def controlset( choice, argv1="None", argv2="None", argv3="None", argv4="None"):
 		padd = len(argv2)+5
 
 	if choice in list:
-		print bcolors.GREEN+"""
+		print (bcolors.GREEN+"""
 Module options ({0}):
 
 \tName\t\t{1}\t\tRequired\tDescription
@@ -90,10 +90,10 @@ Module options ({0}):
 \tencoder\t\t{3}\t\tno\t\tEncoder type	
 \titeration\t{4}\t\tno\t\tIteration times
 """.format(choice,"Current Setting".ljust(padd),"---------------".ljust(padd),
-	argv1.ljust(padd),argv2.ljust(padd))
+	argv1.ljust(padd),argv2.ljust(padd)))
 
 	elif choice in list2:
-		print bcolors.GREEN+"""
+		print (bcolors.GREEN+"""
 Module options ({0}):
 
 \tName\t\t{1}\t\tRequired\tDescription
@@ -102,10 +102,10 @@ Module options ({0}):
 \tencoder\t\t{4}\t\tno\t\tEncoder type	
 \titeration\t{5}\t\tno\t\tIteration times
 """.format(choice,"Current Setting".ljust(padd),"---------------".ljust(padd),
-	argv1.ljust(padd),argv2.ljust(padd),argv3.ljust(padd))
+	argv1.ljust(padd),argv2.ljust(padd),argv3.ljust(padd)))
 
 	elif choice in list3:
-		print bcolors.GREEN+"""
+		print (bcolors.GREEN+"""
 Module options ({0}):
 
 \tName\t\t{1}\t\tRequired\tDescription
@@ -114,7 +114,7 @@ Module options ({0}):
 \tencoder\t\t{4}\t\tno\t\tEncoder type	
 \titeration\t{5}\t\tno\t\tIteration times
 """.format(choice,"Current Setting".ljust(padd),"---------------".ljust(padd),
-	argv1.ljust(padd),argv2.ljust(padd),argv3.ljust(padd),argv4.ljust(padd))
+	argv1.ljust(padd),argv2.ljust(padd),argv3.ljust(padd),argv4.ljust(padd)))
 	
 	elif choice in list4:
 		if len(argv2) >= len(argv3):
@@ -136,7 +136,7 @@ Module options ({0}):
 		infodesc__ = "Connect HOST" 
 
 
-		print bcolors.GREEN+"""
+		print (bcolors.GREEN+"""
 Module options ({0}):
 
 \tName\t\t{1}\t\tRequired\tDescription
@@ -146,7 +146,7 @@ Module options ({0}):
 \tencoder\t\t{9}\t\tno\t\tEncoder type		
 \titeration\t{10}\t\tno\t\tIteration times
 """.format(choice,"Current Setting".ljust(padd),"---------------".ljust(padd),
-	info_,argv1.ljust(padd),infodesc_,info__,argv2.ljust(padd),infodesc__,argv3.ljust(padd),argv4.ljust(padd))
+	info_,argv1.ljust(padd),infodesc_,info__,argv2.ljust(padd),infodesc__,argv3.ljust(padd),argv4.ljust(padd)))
 
 	
 	elif choice in list5:
@@ -162,7 +162,7 @@ Module options ({0}):
 		else:
 			padd = len(argv2)+5
 		
-		print bcolors.GREEN+"""
+		print (bcolors.GREEN+"""
 Module options ({0}):
 
 \tName\t\t{1}\t\tRequired\tDescription
@@ -171,45 +171,45 @@ Module options ({0}):
 \tencoder\t\t{4}\t\tno\t\tEncoder type	
 \titeration\t{5}\t\tno\t\tIteration times
 """.format(choice,"Current Setting".ljust(padd),"---------------".ljust(padd),
-	argv3.ljust(padd),argv2.ljust(padd),argv1.ljust(padd))
+	argv3.ljust(padd),argv2.ljust(padd),argv1.ljust(padd)))
 
 
 	else:
 		if choice == "windows/messagebox":
-			print bcolors.GREEN+"""
-	Module options (%s):
+			print (bcolors.GREEN+"""
+	Module options ({0}):
 
 	\tName\t\tCurrent Setting\t\tRequired\tDescription
 	\t----\t\t--------------\t\t--------\t-----------
-	\tmessage\t\t%s\t\t\tyes\t\tFile name/path to remove
-	\tencoder\t\t%s\t\t\tno\t\tEncoder type		
-	\titeration\t%s\t\t\tno\t\tIteration times
-	""" %  (choice,argv1,argv2,argv3)
+	\tmessage\t\t{1}\t\t\tyes\t\tFile name/path to remove
+	\tencoder\t\t{2}\t\t\tno\t\tEncoder type		
+	\titeration\t{3}\t\t\tno\t\tIteration times
+	""".format(choice,argv1,argv2,argv3))
 
 		elif choice == "windows/download&execute":
-			print bcolors.GREEN+"""
-	Module options (%s):
+			print (bcolors.GREEN+"""
+	Module options ({0}):
 
 	\tName\t\tCurrent Setting\t\tRequired\tDescription
 	\t----\t\t--------------\t\t--------\t-----------
-	\tlink\t\t%s\t\t\tyes\t\tSource to download exe
-	\tfilename\t%s\t\t\tyes\t\tFile name
-	\tencoder\t\t%s\t\t\tno\t\tEncoder type		
-	\titeration\t%s\t\t\tno\t\tIteration times
-	""" %  (choice,argv3,argv4,argv2,argv1)
+	\tlink\t\t{1}\t\t\tyes\t\tSource to download exe
+	\tfilename\t{2}\t\t\tyes\t\tFile name
+	\tencoder\t\t{3}\t\t\tno\t\tEncoder type		
+	\titeration\t{4}\t\t\tno\t\tIteration times
+	""".format(choice,argv3,argv4,argv2,argv1))
 
 
 		#Will be change
 		elif choice == "freebsd_x64/tcp_bind":
-			print bcolors.GREEN+"""
-	Module options (%s):
+			print (bcolors.GREEN+"""
+	Module options ({0}):
 
 	\tName\t\tCurrent Setting\t\tRequired\tDescription
 	\t----\t\t--------------\t\t--------\t-----------
-	\tpassword\t%s\t\t\tyes\t\tPassword for connection
-	\tPORT\t\t%s\t\t\tyes\t\tPort to bind connection
-	\tencoder\t\t%s\t\t\tno\t\tEncoder type		
-	\titeration\t%s\t\t\tno\t\tIteration times
-	""" %  (choice,argv4,argv3,argv2,argv1)
+	\tpassword\t{1}\t\t\tyes\t\tPassword for connection
+	\tPORT\t\t{2}\t\t\tyes\t\tPort to bind connection
+	\tencoder\t\t{3}\t\t\tno\t\tEncoder type		
+	\titeration\t{4}\t\t\tno\t\tIteration times
+	""".format(choice,argv4,argv3,argv2,argv1))
 
 

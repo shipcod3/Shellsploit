@@ -30,4 +30,4 @@ but cannot determine where in the process it will end up. Small egg-hunt shellco
 location and executed. This code then searches the process's address space for the larger shellcode (the egg) and executes it.
 		"""
 
-	print bcolors.RED + bcolors.BOLD + message + bcolors.ENDC
+	print (bcolors.RED + bcolors.BOLD + message + bcolors.ENDC)

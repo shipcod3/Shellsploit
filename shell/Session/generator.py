@@ -79,7 +79,7 @@ def process( data, HOST, PORT, logger=True):
 
 	import os
 	path = os.getcwd()+os.sep+savefile[0].replace("\n", "")
-	print "\n\n\t Exploit Location : %s \n\n" % path
+	print ("\n\n\t Exploit Location : {0} \n\n".format(path))
 
 
 

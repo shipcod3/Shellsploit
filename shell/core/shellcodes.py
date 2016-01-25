@@ -7,7 +7,7 @@
 from color import *
 
 def shellcodelist():
-	print bcolors.GREEN+"""
+	print (bcolors.GREEN+"""
 
 Linux x86
 ===========
@@ -107,4 +107,4 @@ FreeBSD x64
   FreeBSDx64/binsh_spawn
   FreeBSDx64/tcp_bind
   FreeBSDx64/reverse_tcp
-	""" + bcolors.ENDC
+	""" + bcolors.ENDC)

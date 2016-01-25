@@ -8,7 +8,7 @@
 from color import *
 
 def mainhelp():
-	print bcolors.GREEN+"""
+	print (bcolors.GREEN+"""
 Usage Commands
 ===============
 \tCommands		Description
@@ -20,10 +20,10 @@ Usage Commands
 \tshow modules    	Show Modules of Current Database
 \tshow backdoors    	Show Backdoors of Current Database
 \tshow injectors		Show Injectors(Shellcode,dll,so etc..)
-""" 
+""")
 
 def shellcodehelp():
-	print bcolors.GREEN+"""
+	print (bcolors.GREEN+"""
 Shellcode Commands
 ===================
 \tCommands		Description
@@ -40,10 +40,10 @@ Shellcode Commands
 \toutput 			Save option to shellcode(txt,py,c,cpp,exe)
 \tshow encoders		List all obfucscation encoders
 \tshow options		Show Current Options Of Selected Module
-""" 
+""")
 	
 def injectorhelp():
-	print bcolors.GREEN+"""
+	print (bcolors.GREEN+"""
 Injector  Commands
 ===================
 	Commands		Description
@@ -54,4 +54,4 @@ Injector  Commands
 	os  			Command directly ur computer
 	pids			Get PID list of computer
 	getpid			Get specific PID on list(Ex. getpid Python)
-"""	
+""")

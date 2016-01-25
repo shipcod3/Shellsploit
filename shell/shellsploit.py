@@ -7,6 +7,13 @@
 #LICENSE : https://github.com/b3mb4m/Shellsploit/blob/master/LICENSE
 #------------------------------------------------------------------#
 
+import sys
+import os
+
+name = os.sep.join([x for x in os.getcwd().split(os.sep) if x != os.getcwd().split(os.sep)[-1]])
+sys.path.append(name)
+
+
 
 from control import *
 from core.logo.logo import banner
@@ -19,7 +26,7 @@ tab.start(1)
 db = B3mB4mLogo().start()
 def start():
 	#Dynamic counter for shellcodes,injectors etc..
-	print banner( db[0], db[1], db[2], db[3])
+	print (banner( db[0], db[1], db[2], db[3]))
 	shellsploit()
 
 def shellsploit():
@@ -27,7 +34,10 @@ def shellsploit():
 		bash =  bcolors.OKBLUE + bcolors.UNDERLINE + "ssf" + bcolors.ENDC
 		bash += bcolors.OKBLUE + " > "+ bcolors.ENDC
 		#terminal = raw_input(bash).lower()
-		terminal = raw_input(bash)
+		try:
+			terminal = raw_input(bash)
+		except NameError:
+			terminal = input(bash)
 
 		if terminal[:4] == "help":
 			from core.help import mainhelp
@@ -44,7 +54,7 @@ def shellsploit():
 
 
 		elif terminal[:6] == "banner":
-			print banner( db[0], db[1], db[2], db[3])
+			print (banner( db[0], db[1], db[2], db[3]))
 			shellsploit()
 
 		elif terminal[:3] == "use":
@@ -148,7 +158,7 @@ def shellsploit():
 			elif terminal[4:len("FreeBSDx64/tcp_bind")+4] == "FreeBSDx64/tcp_bind":
 				B3mB4m().control( "freebsd_x64/tcp_bind")
 				shellsploit()
-  			elif terminal[4:len("FreeBSDx64/reverse_tcp")+4] == "FreeBSDx64/reverse_tcp":
+			elif terminal[4:len("FreeBSDx64/reverse_tcp")+4] == "FreeBSDx64/reverse_tcp":
 				B3mB4m().control( "freebsd_x64/reverse_tcp")
 				shellsploit()
 			elif terminal[4:len("FreeBSDx64/exec")+4] == "FreeBSDx64/exec":
@@ -219,7 +229,7 @@ def shellsploit():
 
 
 			else:
-				print "\nModule not avaible !\n"
+				print ("\nModule not avaible !\n")
 				shellsploit()
 
 
@@ -246,7 +256,7 @@ def shellsploit():
 			if terminal == "":
 				shellsploit()
 			else:
-				print bcolors.RED + bcolors.BOLD + "[-] Unknown command: %s" % terminal + bcolors.ENDC
+				print (bcolors.RED + bcolors.BOLD + "[-] Unknown command: %s" % terminal + bcolors.ENDC)
 				shellsploit()
 
 
@@ -292,8 +302,8 @@ def main():
 						process( options.payload, options.host, options.port, True)
 						#Default, file will be create with random name.
 				else:
-					print "\npython shellsploit  -p PAYLOAD --host IP --port P0RT\n"
+					print ("\npython shellsploit  -p PAYLOAD --host IP --port P0RT\n")
 			else:
-				print "\npython shellsploit  -p PAYLOAD --host IP --port P0RT\n"
+				print ("\npython shellsploit  -p PAYLOAD --host IP --port P0RT\n")
 		else:
 			start()

@@ -23,7 +23,7 @@ def backdoorlist( require=False):
 		]
 		return data
 	else:
-		print bcolors.GREEN+"""
+		print (bcolors.GREEN+"""
 
 Binaries
 ==========
@@ -51,5 +51,5 @@ Scripting Payloads
   unix/ruby/reverse_tcp
 
 
-	""" + bcolors.ENDC
+	""" + bcolors.ENDC)
 

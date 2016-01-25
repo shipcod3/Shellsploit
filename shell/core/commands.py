@@ -41,12 +41,12 @@ def IP():
 def localIP( natip):
 	#http://stackoverflow.com/questions/166506/finding-local-ip-addresses-using-pythons-stdlib
 	import socket
-	print "\n"+natip
+	print ("\n"+natip)
 	try:
-		print "IP : %s\t-Local" % ([l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")][:1], [[(s.connect(('8.8.8.8', 80)), s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]]) if l][0][0])
+		print ("IP : {0}\t-Local".format([l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")][:1], [[(s.connect(('8.8.8.8', 80)), s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]]) if l][0][0]))
 	except:
-		print "Local IP Not founded."
-	print ""
+		print ("Local IP Not founded.")
+	print ("")
 
 
 def pids( check=None, name=None):
@@ -56,39 +56,36 @@ def pids( check=None, name=None):
 	from psutil import process_iter
 	
 	if check == "wholelist":
-		print ""
+		print ("")
 		for p in process_iter():
 			try:
-				print "\tPID: ",p.pid,"\t\t",p.name()
+				print ("\tPID: ",p.pid,"\t\t",p.name())
 			except:
 				pass
-		print ""
+		print ("")
 	
 	else:
 		cache = None
-		print ""
+		print ("")
 		for p in process_iter():
 			try:
 				if name.lower() in p.name().lower():
 					cache = True
-					print "\tPID: ",p.pid,"\t\t",p.name()
+					print ("\tPID: ",p.pid,"\t\t",p.name())
 			except:
 				pass
-		print ""
+		print ("")
 		if cache == None:
-			print "PID not founded for : %s " % name
+			print ("PID not founded for : {0} ".format(name))
 
 
 def oscommand( command):
 	from os import system
 	try:
-		print 
+		print ()
 		system( command)
 	except Exception as error:
 		return "Unexpected error : %s " % error
-
-
-
 
 
 
@@ -99,7 +96,3 @@ def web2ip( target):
 	except Exception as error:
 		return "Unexpected error : %s " % error
 
-import re
-
-db = "1.1.1.1"
-print [x for x in db if x == "."]

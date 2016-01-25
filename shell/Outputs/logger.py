@@ -26,7 +26,7 @@ def logs(  data=None, extension=None):
 	logs.write(data)
 	logs.close()
 	if extension != None:
-		print "\n\t[+]Script file : %s saved !\n" % (os.getcwd()+os.sep+name)
+		print ("\n\t[+]Script file : {0} saved !\n".format(os.getcwd()+os.sep+name))
 	else:
-		print "\n\t[+]Executable file : %s saved !\n" % (os.getcwd()+os.sep+name)
+		print ("\n\t[+]Executable file : {0} saved !\n".format(os.getcwd()+os.sep+name))
 

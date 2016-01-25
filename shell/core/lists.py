@@ -6,7 +6,7 @@
 #------------------------------------------------------------------#
 
 def encoderlist():
-	print """
+	print ("""
 Encoders
 ========
 
@@ -15,7 +15,7 @@ Encoders
 \tx86/xor\t\t\tnormal\t\tXOR Encoder
 \tx86/xor_b3m [BETA]\texcellent\tPolymorphic XOR Additive Feedback Encoder
 		
-  """
+  """)
 
 
 #\tx64/xor\t\t\tnormal\t\tXOR Encoder
@@ -27,15 +27,15 @@ Encoders
 #\tx86/nonupper\t\tlow\t\tNon-Upper Encoder
 
 def injectorlist():
-	print """
+	print ("""
 \tArchitecture\t\t\tVersion
 \t============\t\t\t=======
 \t[+] injectors/Linux\t\t(x86/x64)
 \t[+] injectors/Windows_x86\t(x86)
-	""" 
+	""")
 
 def OSlist():
-	print """
+	print ("""
 	Operating System	Architecture
 	================	============
 	Linux 		   		x86
@@ -53,7 +53,7 @@ def OSlist():
 	FreeBSD 			ARM
 	OpenBSD 			ARM
 
-"""
+""")
 
 def encoders():
   	list = [
