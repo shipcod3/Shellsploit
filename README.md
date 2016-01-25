@@ -15,7 +15,7 @@ For the Capstone's installation on nix machine:
 
 Also pyreadline for tab completion:
    
-   root$ sudo pip install readline
+   	root$ sudo pip install readline
     
 
 Now you are ready to install:
