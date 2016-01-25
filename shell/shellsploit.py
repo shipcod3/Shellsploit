@@ -15,11 +15,11 @@ sys.path.append(name)
 
 
 
-from control import *
-from core.logo.logo import banner
-from core.logo.counter import *
+from .control import *
+from .core.logo.logo import banner
+from .core.logo.counter import *
 #import signal
-from core.Comp import tab
+from .core.Comp import tab
 
 
 tab.start(1)

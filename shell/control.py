@@ -12,9 +12,9 @@ name = os.sep.join([x for x in os.getcwd().split(os.sep) if x != os.getcwd().spl
 sys.path.append(name)
 
 
-from core.color import *
+from .core.color import *
 from re import findall
-from core.Comp import tab
+from .core.Comp import tab
 
 
 tab.start()
