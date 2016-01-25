@@ -6,6 +6,7 @@
 #------------------------------------------------------------------#
 
 import os
+from sys import platform
  
 class B3mB4mLogo(object):
 	def __init__(self):
@@ -13,6 +14,8 @@ class B3mB4mLogo(object):
 		self.ret = []
 		#self.magic = os.sep.join((os.getcwd()).split(os.sep)[:len((os.getcwd()).split(os.sep))-1])
 		self.magic = os.getcwd()+os.sep+"shell"
+		if 'win' not in platform.lower():
+			self.magic = '/usr/share/shellsploit/'+os.sep
 
 	def calculate(self, select, files=True):
 		if files == True:
