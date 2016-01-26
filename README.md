@@ -1,7 +1,7 @@
 #Shellsploit 
 -------------
 
-Shellsploit lets you generate customized shellcodes, backdoors, injectors for various operating system.
+Shellsploit let's you generate customized shellcodes, backdoors, injectors for various operating system.
 And let you obfuscation every byte via encoders.
 	
 #Install/Uninstall	
